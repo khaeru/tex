@@ -40,7 +40,7 @@
   \pagestyle{fancy}
   \fancyhfoffset[LE,RO]{0cm}
   \fancyhead[RE,LO]{Paul Natsuo Kishimoto}
-  \fancyhead[LE,RO]{\thetitle}
+  \fancyhead[LE,RO]{\shorttitle}
   \renewcommand{\headrulewidth}{0.08em}
   \addtolength{\headheight}{2\baselineskip}
   \cfoot{\bfseries \thepage}
@@ -113,6 +113,10 @@
 %% Common information
 % author
 \author{Paul Natsuo Kishimoto \\ \texttt{\small<\href{mailto:mail@paul.kishimoto.name}{mail@paul.kishimoto.name}>}}
+
+% document title -- a workaround because titlesec and titling both
+% define \thetitle
+\newcommand{\shorttitle}{~}
 
 % a \citeme command
 \newcommand{\citeme}{\textbf{---CITE---}}
