@@ -1,0 +1,35 @@
+\documentclass[twocolumn,twoside,a4paper,11pt,titlepage]{report} % ISO paper sizes!
+
+\usepackage{amsmath} % For \mathbb and similar
+\usepackage[toc]{appendix}
+\usepackage[english]{babel}
+\usepackage{charter} % Charter BT font
+\usepackage{ctable} % \toprule and other commands for tables
+\usepackage{datetime} % Date and time formats
+  \newdateformat{ddmmmmyyyydate}{\THEDAY~\monthname[\THEMONTH] \THEYEAR}
+  \newdateformat{ddmmmyydate}{\THEDAY~\shortmonthname[\THEMONTH] \THEYEAR}
+\usepackage{fancyhdr} % Page headers and footers
+  \pagestyle{fancy}
+  \fancyhf{}
+  \fancyhead[LE,RO]{\thetitle}
+  \fancyhead[RE,LO]{Paul Natsuo Kishimoto}
+  \cfoot{\bfseries \thepage}
+\usepackage[margin=2.5cm,bindingoffset=1cm]{geometry} % Margins
+\usepackage{graphicx} % Graphics
+\usepackage[colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black]{hyperref}
+  \urlstyle{same} % Hyperlinks in PDF documents same colour as text
+\usepackage{ifpdf}
+  \ifpdf
+  \pdfinfo {
+    /Author (Paul Natsuo Kishimoto -- mail@paul.kishimoto.name)
+    /ModDate (D:\pdfdate) % Sets the PDF 'Modification' time to compile time
+  }
+  \fi
+\usepackage[utf8]{inputenc} % Source files are in UTF-8
+\usepackage{longtable} % Split tables across pages
+\usepackage[charter]{mathdesign} % Charter font for math
+\usepackage{titling} % For \thetitle, \thedate
+
+\author{Paul Natsuo Kishimoto \\ \texttt{\small<\href{mailto:mail@paul.kishimoto.name}{mail@paul.kishimoto.name}>}}
+
+\setlength{\parskip}{0.5\baselineskip}
