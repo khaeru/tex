@@ -1,0 +1,54 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% coursebook.tex
+% Paul Kishimoto <mail@paul.kishimoto.name>
+%
+% In lieu of coding my own document class, here is a collection
+% of package invocations and configuration commands. Use via:
+% \input{coursebook}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Packages
+% babel: real Canadian English!
+\usepackage[english,canadian]{babel}
+% charter: Bitstream Charter BT font 
+\usepackage{charter}
+% datetime: preferred little-endian date and time formats
+\usepackage{datetime}
+  % e.g. 01 January 2008
+  \newdateformat{fulldate}{\twodigit{\THEDAY}~\monthname[\THEMONTH] \THEYEAR}
+  % e.g. 01 Jan 08
+  \newdateformat{ddmmmyydate}{\THEDAY~\shortmonthname[\THEMONTH] \THEYEAR}
+% geometry: margins
+\usepackage[hmargin=2.5cm,vmargin={0cm,0.5cm},includeheadfoot]{geometry}
+% hyperref: hyperlinks in PDF documents same colour as text and other link properties
+\usepackage[colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black]{hyperref}
+  \urlstyle{same}
+  \renewcommand{\subsectionautorefname}{\S}
+% ifpdf: PDF metadata
+\usepackage{ifpdf}
+  \ifpdf
+  \pdfinfo {
+    /Author (Paul Natsuo Kishimoto <mail@paul.kishimoto.name>)
+    /ModDate (D:\pdfdate) % Sets the PDF 'Modification' time to compile time
+  }
+  \fi
+% inputenc: source files are in UTF-8. 'ucs' must be loaded first
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+% pdfpages: include pages from other documents
+\usepackage{pdfpages}
+  \includepdfset{pages=-} % whole documents by default
+% titling: access the document title and date with \thetitle, \thedate
+\usepackage{titling}
+% tocloft: Table of Contents formatting
+\usepackage{tocloft}
+  \renewcommand{\cfttoctitlefont}{\Large\bfseries}
+  \renewcommand{\cftaftertoctitle}{\thispagestyle{empty}}
+  \setlength{\cftbeforetoctitleskip}{\baselineskip}
+  \setlength{\cftaftertoctitleskip}{0pt}
+  \setcounter{secnumdepth}{-1}
+
+%% Common information
+% author
+\author{Paul Natsuo Kishimoto \\ \texttt{\small<\href{mailto:mail@paul.kishimoto.name}{mail@paul.kishimoto.name}>}}
+

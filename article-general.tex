@@ -17,7 +17,13 @@
 % babel: real Canadian English!
 \usepackage[english,canadian]{babel}
 
-% charter: Charter BT 
+% ccaption: modify caption styles
+\usepackage{ccaption}
+  \captionnamefont{\bfseries}
+  \captiondelim{ --- }
+  \hangcaption
+  
+% charter: Bitstream Charter BT font 
 \usepackage{charter}
 
 % chngcntr: Global sequence of numbers for figures and tables
@@ -54,6 +60,7 @@
 % hyperref: hyperlinks in PDF documents same colour as text and other link properties
 \usepackage[colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black]{hyperref}
   \urlstyle{same}
+  \renewcommand{\subsectionautorefname}{\S}
 
 % ifpdf: PDF metadata
 \usepackage{ifpdf}
@@ -64,8 +71,13 @@
   }
   \fi
 
-% inputenc: source files are in UTF-8
-\usepackage[utf8]{inputenc}
+% inputenc: source files are in UTF-8. 'ucs' must be loaded first
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+
+% listings: source code listings
+\usepackage{listings}
+  \lstset{basicstyle=\ttfamily,frame=single}
 
 % longtable: split tables across pages
 \usepackage{longtable}
@@ -92,10 +104,20 @@
 % rubber: module index
 % rubber: onchange $base.nlo "makeindex '$base.nlo' -s nomencl.ist -o '$base.nls'"
 % rubber: watch $base.nls
-% rubber: clean $base.{}ilg $base.nlo $base.nls $base.out
+% rubber: clean $base.ilg $base.nlo $base.nls $base.out
+
+% pdfpages: wholesale inclusion of pages from other PDF documents
+\usepackage{pdfpages}
+  \includepdfset{pages=-}
 
 % setspace: use \setspace{n} to adjust line spacing by a factor
 \usepackage{setspace}
+
+% subfigures: this package is considered more up to date than 'subfigure'
+\usepackage{subfig}
+
+% tabularx: variable-width p{} columns in tables
+\usepackage{tabularx}
 
 % titling: access the document title and date with \thetitle, \thedate
 \usepackage{titling}
@@ -103,10 +125,10 @@
 % titlesec: AIAA-ish section and subsection numbering
 \usepackage{titlesec}
   \titleformat{\section}[block]{\filcenter\Large\bfseries}{\thesection.}{4ex}{}{}
-  \titleformat{\subsection}[hang]{\large\bfseries}{\thesubsection.}{1ex}{}{}
+  \titleformat{\subsection}[hang]{\large\bfseries}{\Alph{subsection}.}{1ex}{}{}
   \titlespacing{\subsection}{0pt}{*1}{*0}
   \renewcommand{\thesection}{\Roman{section}}
-  \renewcommand{\thesubsection}{\Alph{subsection}}
+  \renewcommand{\thesubsection}{\Roman{section}\Alph{subsection}}
 
 %% End of package includes
 

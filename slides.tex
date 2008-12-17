@@ -1,0 +1,127 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% slides.tex
+% Paul Kishimoto <mail@paul.kishimoto.name>
+%
+% In lieu of coding my own document class, here is a collection
+% of package invocations and configuration commands. Use via:
+% \input{slides}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Suppress Warnings
+% See http://conway.rutgers.edu/~ccshan/wiki/blog/posts/Beamer_and
+% _mathdesign . The following line must be included before the
+% \documentclass line in any source file:
+% \expandafter\let\csname ver@amssymb.sty\endcsname\empty
+\expandafter\let\csname ver@amssymb.sty\endcsname\relax
+
+%% Packages
+% babel: spelling and hyphenation
+\usepackage[english,canadian]{babel}
+% charter: Bitstream Charter font
+\usepackage{charter}
+% ctable:
+\usepackage{ctable}
+% fontenc: encoding for fonts
+\usepackage[T1]{fontenc}
+% inputenc: see also ucs
+% ucs: Unicode input
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+% mathdesign: fonts for math
+\usepackage[bitstream-charter]{mathdesign}
+% natbib: allow some squishing of the bibliography to save space,
+% e.g. by using:
+%
+%   \setlength{\bibsep}{0.25\baselineskip}
+%
+% ...in the preamble.
+\usepackage[square]{natbib}
+  \newcommand{\newblock}{!}
+% nomencl: nomenclature
+\usepackage{nomencl}
+  \makenomenclature
+% rubber: module index
+% rubber: onchange $base.nlo "makeindex '$base.nlo' -s nomencl.ist -o '$base.nls'"
+% rubber: watch $base.nlo
+% rubber: clean $base.{}ilg $base.nlo $base.nls $base.out
+
+
+%% Beamer formatting
+\useoutertheme{split}
+\useinnertheme{rounded}
+\usecolortheme{khaeru}
+\usefonttheme{structurebold}
+\usefonttheme{serif}
+\setbeamertemplate{navigation symbols}{}
+% frame number in footer
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+  \insertshorttitle\hfill%
+  \insertframenumber\,/\,\inserttotalframenumber}
+
+%% Usual LaTeX Formatting
+% paragraph spacing for readability
+\setlength{\parskip}{0.5\baselineskip}
+
+%% Custom commands and environments
+\newcommand{\km}{~\mathrm{km}}
+\newcommand{\citeme}{\textbf{---CITE---}}
+
+% author information
+\author{Paul Natsuo Kishimoto\texorpdfstring{\\}{~}\texttt{<\href{mailto:mail@paul.kishimoto.name}{mail@paul.kishimoto.name}>}}
+
+% AIAA-style bibliography
+\bibliographystyle{aiaa}
+
+% From: http://newsgroups.derkeiler.com/Archive/Comp/comp.text.tex/2008-11/msg00945.html
+\newenvironment{changemargin}[2]{%
+\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{#1}%
+\setlength{\rightmargin}{#2}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{\parskip}%
+}%
+\item[]}{\end{list}}
+
+% Make one image take up the entire slide content area in beamer,.:
+% centered/centred full-screen image, with title:
+% This uses the whole screen except for the 1cm border around it
+% all. 128x96mm
+\newcommand{\titledFrameImage}[3][]{
+\begin{frame}{#2}
+\begin{changemargin}{-1cm}{-1cm}
+\begin{center}
+\includegraphics[width=108mm,height=0.8\textheight,keepaspectratio,#1]{#3}
+\end{center}
+\end{changemargin}
+\end{frame}
+}
+
+% Make one image take up the entire slide content area in beamer.:
+% centered/centred full-screen image, no title:
+% This uses the whole screen except for the 1cm border around it
+% all. 128x96mm
+\newcommand{\plainFrameImage}[1]{
+\begin{frame}[plain]
+%\begin{changemargin}{-1cm}{-1cm}
+\begin{center}
+\includegraphics[width=108mm,height=76mm,keepaspectratio]{#1}
+\end{center}
+%\end{changemargin}
+\end{frame}
+}
+
+% Make one image take up the entire slide area, including borders, in beamer.:
+% centered/centred full-screen image, no title:
+% This uses the entire whole screen
+\newcommand{\maxFrameImage}[1]{
+\begin{frame}[plain]
+\begin{changemargin}{-1cm}{-1cm}
+\begin{center}
+\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]
+{#1}
+\end{center}
+\end{changemargin}
+\end{frame}
+}
