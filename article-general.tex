@@ -10,37 +10,29 @@
 %% Packages
 % amsmath: makes \mathbb and other math enhancements available
 \usepackage{amsmath}
-
 % appendix: an appendix environment and other goodies
 \usepackage[toc]{appendix}
-
 % babel: real Canadian English!
 \usepackage[english,canadian]{babel}
-
 % ccaption: modify caption styles
 \usepackage{ccaption}
   \captionnamefont{\bfseries}
   \captiondelim{ --- }
   \hangcaption
-  
 % charter: Bitstream Charter BT font 
 \usepackage{charter}
-
 % chngcntr: Global sequence of numbers for figures and tables
 \usepackage{chngcntr}
   \counterwithout{figure}{section}
   \counterwithout{table}{section}
-
 % ctable: \toprule, \midrule, \bottomrule and other commands for tables
 \usepackage{ctable}
-
 % datetime: preferred little-endian date and time formats
 \usepackage{datetime}
   % e.g. 01 January 2008
   \newdateformat{ddmmmmyyyydate}{\THEDAY~\monthname[\THEMONTH] \THEYEAR}
   % e.g. 01 Jan 08
   \newdateformat{ddmmmyydate}{\THEDAY~\shortmonthname[\THEMONTH] \THEYEAR}
-
 % fancyhdr: Page headers and footers
 \usepackage{fancyhdr}
   \pagestyle{fancy}
@@ -50,18 +42,14 @@
   \renewcommand{\headrulewidth}{0.08em}
   \addtolength{\headheight}{2\baselineskip}
   \cfoot{\bfseries \thepage}
-
 % geometry: margins
 \usepackage[hmargin=2.5cm,vmargin={0cm,0.5cm},includeheadfoot]{geometry}
-
 % graphicx: \includegraphics and others
 \usepackage{graphicx}
-
 % hyperref: hyperlinks in PDF documents same colour as text and other link properties
 \usepackage[colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black]{hyperref}
   \urlstyle{same}
   \renewcommand{\subsectionautorefname}{\S}
-
 % ifpdf: PDF metadata
 \usepackage{ifpdf}
   \ifpdf
@@ -70,24 +58,18 @@
     /ModDate (D:\pdfdate) % Sets the PDF 'Modification' time to compile time
   }
   \fi
-
 % inputenc: source files are in UTF-8. 'ucs' must be loaded first
 \usepackage{ucs}
 \usepackage[utf8x]{inputenc}
-
 % listings: source code listings
 \usepackage{listings}
   \lstset{basicstyle=\ttfamily,frame=single}
-
 % longtable: split tables across pages
 \usepackage{longtable}
-
 % mathdesign: charter font for math as well
 \usepackage[charter]{mathdesign}
-
 % multicol: \multicols environment
 \usepackage{multicol}
-
 % natbib: allow some squishing of the bibliography to save space,
 % e.g. by using:
 %
@@ -95,7 +77,6 @@
 %
 % ...in the preamble.
 \usepackage[square,numbers]{natbib}
-  
 % nomencl: to use \nomenclature. Note the 'rubber' building system
 % for LaTEX (http://www.pps.jussieu.fr/~beffara/soft/rubber/) does
 % not yet include support for nomencl, so some support is hacked
@@ -105,23 +86,17 @@
 % rubber: onchange $base.nlo "makeindex '$base.nlo' -s nomencl.ist -o '$base.nls'"
 % rubber: watch $base.nls
 % rubber: clean $base.ilg $base.nlo $base.nls $base.out
-
 % pdfpages: wholesale inclusion of pages from other PDF documents
 \usepackage{pdfpages}
   \includepdfset{pages=-}
-
 % setspace: use \setspace{n} to adjust line spacing by a factor
 \usepackage{setspace}
-
 % subfigures: this package is considered more up to date than 'subfigure'
 \usepackage{subfig}
-
 % tabularx: variable-width p{} columns in tables
 \usepackage{tabularx}
-
 % titling: access the document title and date with \thetitle, \thedate
 \usepackage{titling}
-
 % titlesec: AIAA-ish section and subsection numbering
 \usepackage{titlesec}
   \titleformat{\section}[block]{\filcenter\Large\bfseries}{\thesection.}{4ex}{}{}
@@ -129,16 +104,17 @@
   \titlespacing{\subsection}{0pt}{*1}{*0}
   \renewcommand{\thesection}{\Roman{section}}
   \renewcommand{\thesubsection}{\Roman{section}\Alph{subsection}}
-
 %% End of package includes
 
 %% Common information
 % author
 \author{Paul Natsuo Kishimoto \\ \texttt{\small<\href{mailto:mail@paul.kishimoto.name}{mail@paul.kishimoto.name}>}}
+% AIAA-style bibliography
+\bibliographystyle{aiaa}
 
+%% Custom commands and environments
 % document title -- a workaround because titlesec and titling both
 % define \thetitle
 \newcommand{\shorttitle}{~}
-
-% a \citeme command
+% a "cite me" command
 \newcommand{\citeme}{\textbf{---CITE---}}
