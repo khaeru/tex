@@ -1,9 +1,9 @@
-\documentclass[twocolumn,twoside,a4paper,11pt,titlepage]{report} % ISO paper sizes!
+
+%% Packages
+\input{common}
 
 \usepackage{amsmath} % For \mathbb and similar
 \usepackage[toc]{appendix}
-\usepackage[english]{babel}
-\usepackage{charter} % Charter BT font
 \usepackage{ctable} % \toprule and other commands for tables
 \usepackage{datetime} % Date and time formats
   \newdateformat{ddmmmmyyyydate}{\THEDAY~\monthname[\THEMONTH] \THEYEAR}
@@ -25,10 +25,7 @@
     /ModDate (D:\pdfdate) % Sets the PDF 'Modification' time to compile time
   }
   \fi
-\usepackage[utf8]{inputenc} % Source files are in UTF-8
 \usepackage{longtable} % Split tables across pages
-\usepackage[charter]{mathdesign} % Charter font for math
-\usepackage{titling} % For \thetitle, \thedate
 
 \author{Paul Natsuo Kishimoto \\ \texttt{\small<\href{mailto:mail@paul.kishimoto.name}{mail@paul.kishimoto.name}>}}
 

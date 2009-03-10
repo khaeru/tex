@@ -1,1 +1,0 @@
-aiaa-latex/aiaa.bst

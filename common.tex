@@ -1,0 +1,44 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% common.tex
+% Paul Kishimoto <mail@paul.kishimoto.name>
+%
+% This file is meant to be imported by other templates.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% babel: real Canadian English!
+\usepackage[english,canadian]{babel}
+% charter: Bitstream Charter BT font 
+\usepackage{charter}
+% datetime: preferred little-endian date and time formats
+\usepackage{datetime}
+  % e.g. 01 January 2008
+  \newdateformat{fulldate}{\twodigit{\THEDAY}~\monthname[\THEMONTH] \THEYEAR}
+  % e.g. 01 Jan 08
+  \newdateformat{meddate}{\THEDAY~\shortmonthname[\THEMONTH] \THEYEAR}
+  % e.g. 2008-12-31
+  \newdateformat{numdate}{\THEYEAR-\THEMONTH-\THEDAY}
+% fontenc: encoding for fonts
+\usepackage[T1]{fontenc}
+% inputenc: source files are in UTF-8. 'ucs' must be loaded first
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+% listings: source code listings
+\usepackage{listings}
+  \lstset{basicstyle=\ttfamily,frame=single}
+% mathdesign: charter font for math as well
+%\usepackage[bitstream-charter]{mathdesign}
+% nomencl: to use \nomenclature. Note the 'rubber' build system
+% for LaTEX (http://www.pps.jussieu.fr/~beffara/soft/rubber/) does
+% not yet include support for nomencl, so some support is hacked
+% in here.
+\usepackage{nomencl}
+% rubber: module index
+% rubber: onchange $base.nlo "makeindex '$base.nlo' -s nomencl.ist -o '$base.nls'"
+% rubber: watch $base.nls
+% rubber: clean $base.ilg $base.nlo $base.nls $base.out
+% pdfpages: wholesale inclusion of pages from other PDF documents
+\usepackage{pdfpages}
+  \includepdfset{pages=-}
+% titling: access the document title and date with \thetitle, \thedate
+\usepackage{titling}
+

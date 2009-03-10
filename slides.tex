@@ -15,20 +15,9 @@
 \expandafter\let\csname ver@amssymb.sty\endcsname\relax
 
 %% Packages
-% babel: spelling and hyphenation
-\usepackage[english,canadian]{babel}
-% charter: Bitstream Charter font
-\usepackage{charter}
+\input{common}
 % ctable:
 \usepackage{ctable}
-% fontenc: encoding for fonts
-\usepackage[T1]{fontenc}
-% inputenc: see also ucs
-% ucs: Unicode input
-\usepackage{ucs}
-\usepackage[utf8x]{inputenc}
-% mathdesign: fonts for math
-\usepackage[bitstream-charter]{mathdesign}
 % natbib: allow some squishing of the bibliography to save space,
 % e.g. by using:
 %
@@ -37,13 +26,6 @@
 % ...in the preamble.
 \usepackage[square]{natbib}
   \newcommand{\newblock}{!}
-% nomencl: nomenclature
-\usepackage{nomencl}
-  \makenomenclature
-% rubber: module index
-% rubber: onchange $base.nlo "makeindex '$base.nlo' -s nomencl.ist -o '$base.nls'"
-% rubber: watch $base.nlo
-% rubber: clean $base.{}ilg $base.nlo $base.nls $base.out
 
 %% Beamer formatting
 \useoutertheme{split}
