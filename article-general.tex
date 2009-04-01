@@ -14,10 +14,11 @@
 % appendix: an appendix environment and other goodies
 \usepackage[toc]{appendix}
 % ccaption: modify caption styles
-\usepackage{ccaption}
-  \captionnamefont{\bfseries}
-  \captiondelim{ --- }
-  \hangcaption
+% incompatible with subfig
+%\usepackage{ccaption}
+%  \captionnamefont{\bfseries}
+%  \captiondelim{ --- }
+%  \hangcaption
 % chngcntr: Global sequence of numbers for figures and tables
 \usepackage{chngcntr}
   \counterwithout{figure}{section}
