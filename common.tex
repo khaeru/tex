@@ -39,8 +39,18 @@
 % pdfpages: wholesale inclusion of pages from other PDF documents
 \usepackage{pdfpages}
   \includepdfset{pages=-}
-% subfigure: create subfigures
-\usepackage{subfig}
-% titling: access the document title and date with \thetitle, \thedate
-\usepackage{titling}
+% beamer/non-beamer split
+\makeatletter
+\@ifpackageloaded{beamerbasercs}{
+  % subfigure: create subfigures
+  \usepackage{subfigure}
+}{
+  % subfig/subfigure: create subfigures
+  \usepackage{subfig}
+  % titling: access the document title and date with \thetitle, \thedate
+  \usepackage{titling}
+}
+\makeatother
+
+
 
