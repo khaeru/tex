@@ -96,13 +96,15 @@
 % Make one image take up the entire slide area, including borders, in beamer.:
 % centered/centred full-screen image, no title:
 % This uses the entire whole screen
-\newcommand{\maxFrameImage}[1]{
+\newcommand{\maxFrameImage}[2][]{
+{\setbeamercolor{background canvas}{bg=blue058}
 \begin{frame}[plain]
 \begin{changemargin}{-1cm}{-1cm}
 \begin{center}
-\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]
-{#1}
+\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio,#1]
+{#2}
 \end{center}
 \end{changemargin}
 \end{frame}
+}
 }
