@@ -5,6 +5,7 @@
 % This file is meant to be imported by other templates.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%% Packages
 % babel: real Canadian English!
 \usepackage[english,canadian]{babel}
 % charter: Bitstream Charter BT font 
@@ -41,27 +42,23 @@
   \includepdfset{pages=-}
 % beamer/non-beamer split
 \makeatletter
-\@ifpackageloaded{beamerbasercs}{
+\@ifclassloaded{beamer}{
   % subfigure: create subfigures
   \usepackage{subfigure}
 }{
   % subfig/subfigure: create subfigures
   \usepackage{subfig}
-  % titling: access the document title and date with \thetitle, \thedate
-  \usepackage{titling}
+  \@ifclassloaded{simplecv}{}{
+    % titling: access the document title and date with \thetitle, \thedate
+    \usepackage{titling}
+  }
 }
 \makeatother
+%% End of package includes
 
-\newcommand\tabref{\tablename~\ref}
-\newcommand\tref{\tabref}
-\newcommand{\TODO}[1]{
-  \colorbox{black}{
-    \textcolor{white}{
-      \bfseries TODO---#1.
-    }
-  } \\
-}
-
-
-
+%% Custom commands and environments
+% a "cite me" command
+\newcommand{\citeme}{\textbf{---CITE---}}
+% a big, annoying TODO box
+\newcommand{\TODO}[1]{\colorbox{black}{\textcolor{white}{\bfseries TODO---#1.}}}
 

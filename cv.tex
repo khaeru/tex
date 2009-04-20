@@ -1,0 +1,22 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% cv.tex
+% Paul Kishimoto <mail@paul.kishimoto.name>
+%
+% In lieu of coding my own document class, here is a collection
+% of package invocations and configuration commands. Use via:
+%   \documentclass[..]{simplecv}
+%   \input{cv}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Packages
+\input{common}
+% geometry: margins
+\usepackage[hmargin=3cm,vmargin={0cm,0.5cm},includeheadfoot]{geometry}
+% hyperref: hyperlinks in PDF documents same colour as text and other link properties
+\usepackage[colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black]{hyperref}
+%% End of package includes
+
+\pagestyle{empty}
+
+\sectionfont{\Large\bfseries}
+\titlefont{\Huge\bfseries}
