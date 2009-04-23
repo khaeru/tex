@@ -13,6 +13,7 @@
 \usepackage{amsmath}
 % appendix: an appendix environment and other goodies
 \usepackage[toc]{appendix}
+  \noappendicestocpagenum
 % ccaption: modify caption styles
 % incompatible with subfig
 %\usepackage{ccaption}
@@ -73,6 +74,8 @@
 \usepackage{subfig}
 % tabularx: variable-width p{} columns in tables
 \usepackage{tabularx}
+% tocbibind: bibliography/references in table of contents
+\usepackage[nottoc]{tocbibind}
 % titlesec: AIAA-ish section and subsection numbering
 \usepackage{titlesec}
   \titleformat{\section}[block]{\filcenter\Large\bfseries}{\thesection.}{4ex}{}{}
