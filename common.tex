@@ -59,6 +59,15 @@
 %% Custom commands and environments
 % a "cite me" command
 \newcommand{\citeme}{\textbf{---CITE---}}
+% "null" bibliography. BibTeX throws errors when no \cite or \bibliography is
+% included; this causes rubber to stop compiling, including skipping any
+% compression (e.g. gzip). As a result, the output file (example.pdf.gz) may not
+% exist in the expected place. This command produces only warnings.
+\newcommand{\nobib}{
+  \nocite{*}
+  \renewcommand{\bibsection}{}
+  \bibliography{empty}
+}
 % a big, annoying TODO box
 \newcommand{\TODO}[1]{\colorbox{black}{\textcolor{white}{\bfseries TODO---#1.}}}
 
