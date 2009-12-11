@@ -20,23 +20,15 @@
 \setbeamercolor*{example text}{fg=black}
 \setbeamercolor*{structure}{fg=blue058, bg=white}
 
-\setbeamerfont{alerted text}{series=\bfseries}
+\setbeamercolor*{palette primary}{fg=white,bg=blue058}
+\setbeamercolor*{palette secondary}{fg=white,bg=blue069}
 
-\setbeamercolor*{palette primary}{fg=white,bg=blue069}
-\setbeamercolor*{palette secondary}{fg=white,bg=blue058}
-\setbeamercolor*{palette tertiary}{fg=white,bg=blue069}
-\setbeamercolor*{palette quaternary}{fg=white,bg=blue058}
+\setbeamercolor{section in head/foot}{parent=palette primary}
+\setbeamertemplate{section in head/foot shaded}{\usebeamercolor[fg]{blue069}}
+\setbeamercolor{titlelike}{parent=palette primary}
+\setbeamercolor{frametitle}{parent=palette secondary}
 
-\setbeamercolor{titlelike}{fg=white, bg=blue069}
-\setbeamercolor{frametitle}{fg=white, bg=blue069}
-\setbeamercolor{frametitle right}{fg=white, bg=blue069}
-
-\setbeamercolor{sidebar}{bg=blue058}
-
-\setbeamercolor*{palette sidebar primary}{fg=black}
-\setbeamercolor*{palette sidebar secondary}{fg=black}
-\setbeamercolor*{palette sidebar tertiary}{fg=black}
-\setbeamercolor*{palette sidebar quaternary}{fg=black}
+\setbeamercolor{title in head/foot}{parent=palette secondary}
 
 \setbeamercolor*{item projected}{fg=black,bg=black!20}
 
@@ -47,8 +39,8 @@
 \setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!15!bg}
 \setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!15!bg}
 
-\setbeamercolor*{separation line}{}
-\setbeamercolor*{fine separation line}{}
+%\setbeamercolor*{separation line}{parent=palette secondary}
+%\setbeamercolor*{fine separation line}{}
 
 \mode
 <all>

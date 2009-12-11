@@ -1,0 +1,46 @@
+\mode<presentation>
+
+%% Theme includes
+\useoutertheme[subsection=false]{miniframes}
+\useinnertheme{rounded}
+\usecolortheme{khaeru}
+\usefonttheme{serif}
+\usefonttheme{structurebold}
+
+%% Template definitions
+\defbeamertemplate*{headline}{khaeru}
+{%
+  \begin{beamercolorbox}[ht=2.25ex,dp=3.75ex]{section in head/foot}
+    \insertnavigation{\paperwidth}
+  \end{beamercolorbox}%
+  \ifbeamer@theme@subsection%
+    \begin{beamercolorbox}[colsep=1.5pt]{middle separation line head}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+      \usebeamerfont{subsection in head/foot}\insertsubsectionhead
+    \end{beamercolorbox}%
+  \fi%
+}
+
+\defbeamertemplate{footline}{khaeru}
+{%
+  \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+    leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \leavevmode{\usebeamerfont{title in head/foot}\insertshorttitle}%
+    \hfill%
+    {\usebeamerfont{page number in head/foot}\insertframenumber}%
+    \hfill%
+    {\usebeamerfont{author in head/foot}\usebeamercolor[fg]{author in head/foot}\insertshortauthor}%
+  \end{beamercolorbox}%
+}
+
+%% Settings
+\setbeamerfont{alerted text}{series=\bfseries}
+\setbeamertemplate{frametitle}[default][center]
+\setbeamertemplate{footline}[khaeru]
+\setbeamertemplate{headline}[khaeru]
+\setbeamertemplate{navigation symbols}{}
+
+\mode
+<all>
