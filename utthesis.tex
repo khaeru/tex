@@ -1,8 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % utthesis.tex
 % Paul Kishimoto <mail@paul.kishimoto.name>
-%
-% This file is meant to be imported by other templates.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Packages
@@ -59,19 +57,22 @@
 % pdfpages: wholesale inclusion of pages from other PDF documents
 \usepackage{pdfpages}
   \includepdfset{pages=-}
-% beamer/non-beamer split
-% subfig/subfigure: create subfigures
+% setspace: multiple line spacing
+\usepackage{setspace}
+  \onehalfspacing
+% subfig: create subfigures
 \usepackage{subfig}
+% titling: custom title page
 \usepackage{titling}
   \pretitle{\scshape \Huge \begin{center}}
   \posttitle{\end{center}}
   \renewcommand{\maketitlehookb}{
     \vskip 20mm
     \centering \Large by
-    \vskip 25mm
+    \vskip 20mm
    }
   \preauthor{\centering \scshape \Huge}
-  \postauthor{\vskip 25mm}
+  \postauthor{\vskip 20mm}
   \renewcommand{\maketitlehookc}{
     \Large
     A thesis submitted in conformity with the requirements \\
@@ -87,7 +88,7 @@
   \postdate{\vskip 20mm}
 %% End of package includes
 
-\newcommand{\endfrontmatter}{%
-  \clearpage%
-  \setcounter{page}{1}%
-}
+%\newcommand{\endfrontmatter}{%
+%  \clearpage%
+%  \setcounter{page}{1}%
+%}
