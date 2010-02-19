@@ -3,14 +3,24 @@
 % Paul Kishimoto <mail@paul.kishimoto.name>
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% Packages
-\usepackage{amsmath}
+%% Packages without any special configuration
+\usepackage{%
+  algpseudocode,% Algorithms
+  amsmath,%       Math 'align' environment and other good stuff
+  charter,%       Bitstream Charter BT font 
+  ctable,%        \toprule, \midrule and \bottomrule for tables
+  pgfplots,%      Plots in TikZ figures
+  graphicx,%      Graphics
+  tikz,%          Fancy drawings
+  ucs,%           Necessary for 'inputenc', below
+  units%          Units in math environments
+  }
+
+%% Packages with configuration
 % appendix: add the appendix environment
-\usepackage[toc]{appendix}
+\usepackage[page,toc]{appendix}
 % babel: real Canadian English!
 \usepackage[english,canadian]{babel}
-% charter: Bitstream Charter BT font 
-\usepackage{charter}
 % datetime: preferred little-endian date and time formats
 \usepackage{datetime}
   % e.g. 01 January 2008
@@ -24,26 +34,33 @@
   \pagestyle{fancy}
   \fancyhf{}
   \fancyhead[LE,RO]{\bfseries \thepage}
+  \addtolength{\headheight}{0.25em}
   \fancyhfoffset[LE,RO]{0pt}
 % fontenc: encoding for fonts
 \usepackage[T1]{fontenc}
 % geometry: margins and other layout
 \usepackage[includehead,%
-  inner=32mm,%
-  outer=20mm,%
-  vmargin=20mm%
+  inner=32mm,% SGS minimum; UTIAS minimum is 25mm
+  outer=25mm,% UTIAS minimum; SGS minimum is 20mm
+  vmargin=25mm% UTIAS minimum; SGS minimum is 20mm
   ]{geometry}
-% graphicx: Graphics
-\usepackage{graphicx}
 % hyperref: Hyperlinks in PDF documents, same colour as text.
-\usepackage[colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black]{hyperref}
+\usepackage[colorlinks,%
+  citecolor=black,%
+  filecolor=black,%
+  linkcolor=black,%
+  urlcolor=black%
+  ]{hyperref}
   \urlstyle{same}
-% inputenc: source files are in UTF-8. 'ucs' must be loaded first
-\usepackage{ucs}
+% inputenc: source files are in UTF-8.
 \usepackage[utf8x]{inputenc}
 % listings: source code listings
 \usepackage{listings}
-  \lstset{basicstyle=\ttfamily,frame=single}
+  \lstset{%
+    basicstyle=\ttfamily\scriptsize,%
+    frame=single,%
+    language=Python%
+  }
 % mathdesign: charter font for math as well
 \usepackage[bitstream-charter]{mathdesign}
 % nomencl: to use \nomenclature. Note the 'rubber' build system
@@ -63,18 +80,21 @@
   \onehalfspacing
 % subfig: create subfigures
 \usepackage{subfig}
-\usepackage{tikz}
+  \newcommand{\subfigureautorefname}{\figureautorefname}
+% tocbibind: 
+\usepackage[nottoc]{tocbibind}
 % titling: custom title page
 \usepackage{titling}
+  \setlength{\droptitle}{-30mm} % adjustment
   \pretitle{\scshape \Huge \begin{center}}
   \posttitle{\end{center}}
   \renewcommand{\maketitlehookb}{
-    \vskip 20mm
+    \vskip 20mm % SGS: 1½" or approx 4cm
     \centering \Large by
-    \vskip 20mm
+    \vskip 20mm % SGS: 1½" or approx 4cm
    }
   \preauthor{\centering \scshape \Huge}
-  \postauthor{\vskip 20mm}
+  \postauthor{\vskip 20mm} % SGS: 2" or approx 5cm
   \renewcommand{\maketitlehookc}{
     \Large
     A thesis submitted in conformity with the requirements \\
@@ -83,15 +103,19 @@
   }
   \renewcommand{\maketitlehookd}{
     \centering \Large
-    \copyright 2010 Paul Natsuo Kishimoto
+    \copyright 2010 \theauthor
   }
   \predate{}
   \date{}
-  \postdate{\vskip 20mm}
+  \postdate{\vskip 15mm} % SGS: 1¼" or approx 3cm
 %% End of package includes
 
-%\newcommand{\endfrontmatter}{%
-%  \clearpage%
-%  \setcounter{page}{1}%
-%}
+%% Custom commands
+% environment to contain the frontmatter
+\newenvironment{frontmatter}{
+  \renewcommand{\thepage}{\roman{page}}
+}{
+  \cleardoublepage
+  \setcounter{page}{1}
+}
 
