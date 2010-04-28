@@ -19,8 +19,10 @@
 %% Packages with configuration
 % appendix: add the appendix environment
 \usepackage[page,toc]{appendix}
+%  \newcommand{\appendixname}{Appendix}
 % babel: real Canadian English!
 \usepackage[english,canadian]{babel}
+% caption
 \usepackage[
   font=small,
   format=hang,
@@ -115,7 +117,9 @@
   \predate{}
   \date{}
   \postdate{\vskip 15mm} % SGS: 1¼" or approx 3cm
+% wrapfig: 
 \usepackage{wrapfig}
+  \setlength{\wrapoverhang}{1cm}
 %% End of package includes
 
 %% Custom commands
