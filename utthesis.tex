@@ -10,16 +10,18 @@
   charter,%       Bitstream Charter BT font 
   ctable,%        \toprule, \midrule and \bottomrule for tables
   graphicx,%      Graphics
-  nicefrac,%
+  nicefrac,%      Pretty fractions (with 'units')
   pgfplots,%      Plots in TikZ figures
   tikz,%          Fancy drawings
-  ucs,%           Necessary for 'inputenc', below
-  units%          Units in math environments
+  units%          Units in math environments (with 'nicefrac')
   }
 
 %% Packages with configuration
-% appendix: add the appendix environment
-\usepackage[page,toc]{appendix}
+% appendix: add the 'appendix' environment
+\usepackage[
+% page, % add a single page with 'Appendices' at the start of the appendices.
+  toc, % put 'Appendices' into the ToC before listing the appendices
+  ]{appendix}
 %  \newcommand{\appendixname}{Appendix}
 % babel: real Canadian English!
 \usepackage[english,canadian]{babel}
@@ -56,7 +58,7 @@
   ]{geometry}
 % hyperref: Hyperlinks in PDF documents, same colour as text.
 \usepackage[colorlinks,%
-%  citecolor=black,%
+  citecolor=black,%
   filecolor=black,%
 %  linkcolor=black,%
   urlcolor=black%
@@ -65,7 +67,8 @@
   \renewcommand{\appendixautorefname}{Appendix}
   \renewcommand{\chapterautorefname}{Chapter}
 % inputenc: source files are in UTF-8.
-\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
+  \usepackage{unicode-extra}
 % listings: source code listings
 \usepackage{listings}
   \lstset{%
