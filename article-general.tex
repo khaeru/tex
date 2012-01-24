@@ -34,13 +34,18 @@
   \newdateformat{ddmmmyydate}{\THEDAY~\shortmonthname[\THEMONTH] \THEYEAR}
 % fancyhdr: Page headers and footers
 \usepackage{fancyhdr}
-  \pagestyle{fancy}
+  \fancypagestyle{plain}{
+    \fancyhead{}
+    \cfoot{\bfseries \thepage}
+    \renewcommand{\headrulewidth}{0pt}
+  }
   \fancyhfoffset[LE,RO]{0cm}
   \fancyhead[RE,LO]{Paul Natsuo Kishimoto}
   \fancyhead[LE,RO]{\shorttitle}
   \renewcommand{\headrulewidth}{0.08em}
   \addtolength{\headheight}{2\baselineskip}
   \cfoot{\bfseries \thepage}
+  \pagestyle{fancy}
 % geometry: margins
 \usepackage[hmargin=2.5cm,vmargin={0cm,0.5cm},includeheadfoot]{geometry}
 % graphicx: \includegraphics and others
