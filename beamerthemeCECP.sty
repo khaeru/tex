@@ -1,0 +1,92 @@
+% MODIFIED FROM:
+%% The Rice Owl Beamer Color Theme ver. 0.00 (2008/10/10)
+%% Copyright 2008 by Daina Chiba (d.chiba@rice.edu)
+%%
+%% http://www.owlnet.rice.edu/~d.chiba/latex.html#beamer
+%% This file may be distributed and/or modified
+%%
+%% 1. under the LaTeX Project Public License and/or
+%% 2. under the GNU Public License.
+%%
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+% JP colors
+\definecolor{pms-282}{cmyk}{1.00, 0.68, 0.00, 0.54} % darkest blue
+\definecolor{pms-357}{cmyk}{0.80, 0.00, 1.00, 0.56} % dark green
+
+\mode<presentation>
+
+\defbeamertemplate*{background canvas}{title slide}{
+\begin{tikzpicture}[remember picture,overlay]
+\fill[pms-357] ($(current page.north west) - (0,10.7mm)$) rectangle
+  ($(current page.north east) - (0,16mm)$);
+\fill[pms-357] ($(current page.south west) + (0,5mm)$) rectangle
+  ($(current page.south east) + (0,6mm)$);
+\fill[pms-357] ($(current page.south west) + (0,7mm)$) rectangle
+  ($(current page.south east) + (0,12mm)$);
+\node[anchor=west] at ($(current page.north west) + (4mm,-13.35mm)$) {
+  \includegraphics[width=4cm]{jp/logo.pdf}};
+\node[anchor=east] at ($(current page.north east) - (4mm,13.35mm)$) {
+  \includegraphics[width=4cm]{cecp/th-ieee-logo.png}};
+\node[anchor=south west] at ($(current page.south west) + (4mm,0)$) {
+  \includegraphics[width=7cm]{cecp/logo-text-cn.png}};
+\node[anchor=east,color=white,font=\rmfamily\itshape\bfseries] at
+  ($(current page.south east) + (-4mm,9.25mm)$) {Annual Meeting 2012};
+\end{tikzpicture}
+}
+
+% background template for general slides
+\defbeamertemplate*{background canvas}{cecp}{
+\begin{tikzpicture}[overlay]
+\fill[pms-357] (current page.north west) rectangle (current page.south east);
+\fill[pms-282] ($(current page.north west) + (2mm,-2mm)$) rectangle
+  ($(current page.south east) - (2mm,-2mm)$);
+\fill[white] ($(current page.north west) + (3mm,-3mm)$) rectangle
+  ($(current page.south east) - (3mm,-3mm)$);
+\node[anchor=north west] at ($(current page.north west) + (5mm,-5mm)$)
+  {\includegraphics[height=12mm]{cecp/logo.pdf}};
+\node[anchor=south east,font=\bfseries] at
+  ($(current page.south east) + (-3mm,3mm)$) {\insertframenumber};
+\end{tikzpicture}
+}
+
+\setbeamercovered{transparent}
+\setbeamertemplate{navigation symbols}{}
+\setbeamersize{text margin left=4mm,text margin right=4mm}
+\beamerdefaultoverlayspecification{<+->}
+
+%\setbeamertemplate{frametitle}[default][center]
+\setbeamercolor{frametitle}{fg=black}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+
+\defbeamertemplate*{frametitle}{CECP}[1][center]{
+  \leavevmode%
+  \hbox{%
+  \hspace{14mm}%
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by-22mm%
+  \advance\@tempdima by\beamer@rightmargin%
+  \begin{beamercolorbox}[sep=0.3cm,#1,wd=\the\@tempdima]{frametitle}
+    \usebeamerfont{frametitle}%
+    \vbox{}\vskip-1ex%
+    \if@tempswa\else\csname beamer@fte#1\endcsname\fi%
+    \strut\insertframetitle\strut\par%
+    {%
+      \ifx\insertframesubtitle\@empty%
+      \else%
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+      \fi
+    }%
+    \vskip-1ex%
+    \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  \end{beamercolorbox}%
+  }
+}
+
+\addtobeamertemplate{footnote}{}{\vspace{3mm}}
+
+\mode<all>

@@ -11,15 +11,31 @@
 
 \mode<presentation>
 
-\definecolor{grey-0.8}{gray}{0.8}
-\definecolor{pms-282}{cmyk}{1,0.68,0,0.54}
-\definecolor{pms-357}{cmyk}{0.8,0,1,0.56}
+\definecolor{grey-80}{gray}{0.8}
+
+% primary colours from the JP palette
+\definecolor{pms-2955}{cmyk}{1.00, 0.64, 0.10, 0.31} % dark blue
+\definecolor{pms-377}{cmyk}{0.44, 0.00, 1.00, 0.10} % light green
+\definecolor{pms-7450}{cmyk}{0.21, 0.13, 0.02, 0.07} % light blue
+\definecolor{pms-282}{cmyk}{1.00, 0.68, 0.00, 0.54} % darkest blue
+\definecolor{pms-357}{cmyk}{0.80, 0.00, 1.00, 0.56} % dark green
+\definecolor{pms-1797}{cmyk}{0.00, 1.00, 1.00,0.05} % red
+
+% secondary colors from the JP palette
+\definecolor{pms-201}{cmyk}{0.00, 1.00, 0.64, 0.29} % magenta-ish
+\definecolor{pms-3282}{cmyk}{1.00, 0.00, 0.46, 0.15} % teal
+\definecolor{pms-724}{cmyk}{0.00, 0.51, 1.00, 0.36} % light brown
+\definecolor{grey-40}{gray}{0.40} % 40% black
+\definecolor{yeller}{cmyk}{0.20, 1.00, 1.00, 0.12} % yellow
+% …and black
 
 \setbeamercolor{normal text}{bg=pms-282,fg=white}
 
-\setbeamercolor{structure}{fg=grey-0.8}
+\setbeamercolor{alerted text}{fg=pms-377}
+\setbeamercolor{structure}{fg=pms-7450}
 
-\setbeamercolor{frametitle}{fg=white,bg=pms-357}
+\setbeamercolor{frametitle}{fg=white,bg=pms-2955}
 
-\mode
-<all>
+\setbeamercolor{note page}{fg=black}
+
+\mode<all>
