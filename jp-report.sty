@@ -1,0 +1,291 @@
+% A package to mimic the JP Report LaTeX template, in LyX
+% 2012-06-23 Paul Natsuo Kishimoto <pnk@MIT.EDU>
+%
+% This package is based on the files JP_report_formatting.tex and
+% JP_Report_template.tex (v1.2, 2012-05-24) developed by Erwan Monier
+% <emonier@MIT.EDU>.
+%
+% USAGE
+%
+% The following settings should be set in the LyX Document Settings dialog, with
+% the remainder left at the LyX defaults. (If you have set global LyX defaults —
+% for example, specific fonts — you will need to cancel or override them for
+% this package to produce proper output.)
+%
+% * "Document class" page
+%   * Document class: article
+%   * Class options / Custom: fleqn
+%     * This is an option for the 'amsmath' package, which LyX will load
+%       automatically.
+%   * Suppress default date on front page
+% * "Modules" page
+%   * Selected: "MIT Joint Program Report" module, included with this file as
+%     jp-report.module. The file must be placed in the 'layout' subdirectory of
+%     your LyX user directory (often '~/.lyx') to be available within LyX.
+% * "Fonts" page
+%   * Base Size: 12
+% * "Bibliography" page
+%   * Citation Style: Natbib
+%   * Natbib Style: Author-year
+%
+% Prepare your JP Report in LyX as you would any other document, with only two
+% exceptions:
+%
+% * In the Authors block, use LyX footnotes to indicate affiliations and the
+%   corresponding author.
+%   * After each footnote, insert a "protected space" by pressing Ctrl+Space.
+%   * To reuse an affiliation (for example, if two authors are both JP
+%     researchers), use the following LaTeX code in a code inset. Type Ctrl+L,
+%     followed by "\thanksmark{1}". Use 2 for the second affiliation footnote,
+%     etc. Also follow this mark with a protected space.
+% * When inserting a BibTeX generated bibliography in the LyX document, use the
+%   following options in the dialog:
+%   * Style: click "Browse…" and choose the file jpreport.bst included with the
+%     JP Report LaTeX Template, and also with this package.
+%   * Add bibliography to ToC — NOT checked. This package handles adding it.
+%
+% TECHNICAL NOTES
+%
+% * The file is in four sections:
+%   1. Package loads and package-related commands. Packages are loaded in
+%      alphabetical order except where there are dependencies
+%   2. Redefinitions of standard commands and environments
+%   3. Unchanged content from JP_report_formatting.tex
+%   4. LyX-specific commands
+% * prettyref, as far as I can tell, does not provide a facility for making only
+%   the *first* reference to each figure, table, etc. appear boldfaced. This
+%   must be done manually in LyX, or extended through more advanced hacking here
+%   or in jpreport.bst
+
+%% 1. PACKAGES
+
+% abstract: control appearance of the abstract
+\usepackage{abstract}
+% left and right indent of 0.4"
+\setlength{\absleftindent}{0.4in}
+\setlength{\absrightindent}{0.4in}
+% text justified, small font, italicized
+\renewcommand\abstracttextfont{\vspace{-1em}\justifying\footnotesize\itshape}
+
+% caption: control format of figure and table captions
+\usepackage[indention=.5cm,labelsep=period]{caption}
+
+% footmisc: position & formatting of footnotes
+\usepackage[hang,flushmargin,bottom]{footmisc}
+\setlength{\footnotemargin}{0.2in}
+
+% geometry: adjust layout and page dimensions
+\usepackage[left=1in,right=1in,top=1in,bottom=0.5in,includefoot]{geometry}
+
+% hyperref (loaded by LyX)
+\hypersetup{urlcolor=black}
+\urlstyle{same}
+
+% natbib (loaded by LyX)
+\setcitestyle{round}
+\renewcommand{\bibsection}{\section{\refname}\vskip0.5em\setstretch{1}}
+\setlength{\bibhang}{0.25in}
+
+% ragged2e: text justification
+\usepackage{ragged2e}
+% use this instead of the 'document' package option, which (a) affects too many
+% parts of the document and (b) interferes
+\AtBeginDocument{\RaggedRight}
+% JP author guide specifies 0.2" indent
+\setlength{\RaggedRightParindent}{0.2in}
+
+% setspace: line spacing
+\usepackage{setspace}
+% JP format line spacing
+\onehalfspacing
+
+% times: Times New Roman font
+\usepackage{times}
+
+% titlesec & titletoc: the commands \titleformat and \titlespacing are used to
+% control section titles in the document; the command \titlecontents is used to
+% control appearance of the ToC
+\usepackage{titlesec,titletoc}
+% general
+\newcommand{\tocsize}{\fontsize{10pt}{10pt}\selectfont}
+\contentsmargin{0.5in} % right margin for ToC
+% sections
+\titleformat{\section}{\normalfont\bfseries}{\thesection.\,\,}{0em}%
+  {\MakeUppercase}
+\titlespacing{\section}{0pt}{6pt}{4pt}
+\titlecontents{section}[0.5in]{\vspace{-2pt}}%
+  {\footnotesize\thecontentslabel.\,\,\uppercase}{}%
+  {\titlerule*[0.2em]{\scriptsize{.}}\thecontentspage}
+% subsections
+\renewcommand*\thesubsection{\arabic{section}.\arabic{subsection}}
+\titleformat{\subsection}{\normalfont\bf}{\thesubsection\,\,}{0em}{}
+\titlespacing{\subsection}{\parindent}{10pt}{6pt}
+\titlecontents{subsection}[0.7in]{\vspace{-2pt}}%
+  {\tocsize\thecontentslabel\,\,}{}%
+  {\titlerule*[0.2em]{\scriptsize{.}}\thecontentspage}
+% subsubsections
+\renewcommand*\thesubsubsection{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+\titlespacing{\subsubsection}{\parindent}{8pt}{4pt}
+\titleformat{\subsubsection}{\normalfont\it\bfseries}{\thesubsubsection\,\,}%
+  {0em}{}
+% TODO: \titlecontents line for subsubsections
+
+% titling: control the title block
+\usepackage{titling}
+% move title closer to top of page
+\setlength{\droptitle}{-0.8in}
+\renewcommand{\maketitlehooka}{\begin{center}}
+% font style for title
+\pretitle{\normalfont\bfseries}
+% remove space between title and author(s)
+\posttitle{\par\vspace{0.5em}}
+% font style for author(s)
+\preauthor{\normalfont}
+\postauthor{}
+% remove some space after the titleblock
+\renewcommand{\maketitlehookd}{\end{center}\vspace{-1in}}
+% the following three commands set up a hanging \thanks with
+\setlength{\thanksmarkwidth}{1ex}
+\setlength{\thanksmargin}{0.2in}
+\renewcommand{\footnotelayout}{\hskip -0.13in}
+
+% other packages without options. Some packages are omitted here:
+% * graphicx, xcolor — loaded by LyX if graphics appear in the document
+% * xfrac — not in the TeXLive distribution
+% * authblk — no longer used
+\usepackage{%
+  bookmark,%
+  ctable,%
+  dcolumn,%
+  doi,%
+  hanging,%
+  rccol,%
+  siunitx,%
+  tabularx,%
+  tikz,% to control tables
+  verbatim,% for writing code
+  }
+
+
+%% 2. REDEFINITIONS OF STANDARD COMMANDS & ENVIRONMENTS
+
+% In most instances simply \renewcommand\contentsname would be sufficient, but
+% to comply with the JP Author's Guide it is necessary to remove vertical space
+% at a couple of points. This could be done using the package 'tocloft', but
+% using 'tocloft' and 'titletoc' simultaneously is difficult. This redefinition
+% is very slightly modified from the one in the standard article.cls
+\makeatletter
+\renewcommand\tableofcontents{%
+  \vspace{-\baselineskip}% remove space between the Abstract and ToC
+  \small
+  \begin{center}%
+    {\bfseries \contentsname\vspace{-1em}}
+  \end{center}%
+  \@starttoc{toc}%
+  }
+\makeatother
+
+
+%% 3. UNCHANGED CONTENT FROM JP_report_formatting.tex
+% N.B. — the current version of jp-report.sty was developed for a JP Report that
+% didn't make use of the following features. Using them within LyX may produce
+% unexpected results.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Appendix
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\let\oldappendix\appendix
+\renewcommand\appendix{
+\renewcommand{\baselinestretch}{1.0}
+\normalsize
+\setcounter{section}{0}
+\let\section\oldsection
+}
+
+\let\appsection\section
+\renewcommand{\appsection}[1]{
+\setcounter{table}{0}
+\setcounter{figure}{0}
+\renewcommand*\thetable{\Alph{section}\arabic{table}}
+\renewcommand*\thefigure{\Alph{section}\arabic{figure}}
+\titleformat{\section}{\centering\normalfont\bf}{\thesection}{0em}{}
+\titlespacing{\section}{0pt}{20pt}{4pt}
+\stepcounter{section}
+\section*{APPENDIX\,\Alph{section}#1}
+\phantomsection
+\addcontentsline{toc}{section}{APPENDIX\,\Alph{section}#1}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Acknowledgments
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\acknowledgments}[1]{
+\vspace{16pt}
+\par
+\noindent {\normalsize\textbf{Acknowledgements}}\\[5pt]
+\renewcommand{\baselinestretch}{0.8}\normalsize
+\noindent #1\\[16pt]
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Equations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength\mathindent{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Column Types
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcommand{\tableheader}[3]{
+\multicolumn{#1}{#2}{\textbf{#3}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Captions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclareCaptionFormat{myformat}{\fontfamily{phv}\selectfont#1#2#3\par}
+\let\oldcaption\caption
+\renewcommand{\caption}[1]{%
+  \captionsetup{format=myformat,font=footnotesize,labelfont=bf}%
+  \oldcaption{#1}}
+\newcommand{\tablecaption}[1]{\captionsetup{singlelinecheck=off}\caption{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Enumerate lists
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{qcounter}
+\renewenvironment{enumerate}{%
+  \setcounter{qcounter}{1}%
+  \begin{list}%
+  {\arabic{qcounter}.}{\usecounter{qcounter}%
+  \setlength\leftmargin{0.75in}%
+  \setlength\itemsep{2pt}%
+  \setlength\labelsep{0.15in}}}
+  {\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Itemize lists
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewenvironment{itemize}{%
+  \begin{list}{$\bullet$}{%
+  \setlength\leftmargin{0.5in}%
+  \setlength\itemsep{-2pt}%
+  \setlength\labelsep{0.15in}%
+  \setlength\topsep{0pt}}}
+  {\end{list}}
+
+
+%% 4. LYX-SPECIFIC CODE
+
+% prettyref (loaded by LyX): formatted cross-references appear as "Figure 1 on
+% page 5" by default. Remove the page number
+\newrefformat{tab}{Table \ref{#1}}
+\newrefformat{fig}{Figure \ref{#1}}

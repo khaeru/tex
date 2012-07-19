@@ -1,0 +1,19 @@
+#% Do not delete the line below; LyX configuration depends on this
+#  \DeclareLyXModule{MIT Joint Program Report}
+# DescriptionBegin
+#   LaTeX code to make an article conform with the MIT Joint Program on the
+#   Science & Policy of Global Change Report Series format. The only effect is
+#   to include jp-report.sty, which should be available somewhere in the
+#   TEXPATH.
+#
+#   jp-report.sty loads the following LaTeX packages, which you should avoid
+#   reloading: abstract, bookmark, caption, ctable, dcolumn, doi, footmisc,
+#   hanging, ragged2e, rccol, setspace, siunitx, tabularx, times, tikz,
+#   titlesec, titletoc, titling, verbatim.
+# DescriptionEnd
+
+Format 35
+
+Preamble
+  \usepackage{jp-report}
+EndPreamble

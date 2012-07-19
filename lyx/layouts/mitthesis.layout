@@ -1,0 +1,150 @@
+#% Do not delete the line below; configure depends on this
+# \DeclareLaTeXClass[mitthesis,lgrind.sty]{MIT thesis}
+# Author : Paul Natsuo Kishimoto <mail@paul.kishimoto.name>
+
+Format 35
+Input stdclass.inc
+
+Preamble
+  \usepackage{lgrind}
+EndPreamble
+
+# LyX styles for single-argument MIT cover page elements. The contents are all
+# identical except for the LatexName and LabelString; unfortunately LyX doesn't
+# support inheritance of any kind.
+
+Style "Previous degrees"
+	LatexName             prevdegrees
+	LabelString           "Previous degrees:"
+
+	Align                 Center
+	Category              FrontMatter
+	InTitle               1
+	LabelSep              " "
+	LabelType             Static
+	LatexType             Command
+	Margin                Static
+End
+
+Style Department
+	LatexName             department
+	LabelString           Department:
+
+	Align                 Right
+	Category              FrontMatter
+	InTitle               1
+	LabelSep              " "
+	LabelType             Static
+	LatexType             Command
+	Margin                Static
+End
+
+Style "Degree month"
+	LatexName             degreemonth
+	LabelString           "Degree month:"
+
+	Align                 Center
+	Category              FrontMatter
+	InTitle               1
+	LabelSep              " "
+	LabelType             Static
+	LatexType             Command
+	Margin                Static
+End
+
+Style "Degree year"
+	LatexName             degreeyear
+	LabelString           "Degree year:"
+
+	Align                 Center
+	Category              FrontMatter
+	InTitle               1
+	LabelSep              " "
+	LabelType             Static
+	LatexType             Command
+	Margin                Static
+End
+
+Style "Thesis date"
+	LatexName             thesisdate
+	LabelString           "Thesis date:"
+
+	Align                 Right
+	Category              FrontMatter
+	InTitle               1
+	LabelSep              " "
+	LabelType             Static
+	LatexType             Command
+	Margin                Static
+End
+
+Style Degree
+	LatexName             degree
+	LabelString           Degree:
+
+	Align                 Center
+	Category              FrontMatter
+	InTitle               1
+	LabelSep              " "
+	LabelType             Static
+	LatexType             Command
+	Margin                Static
+End
+
+# LyX styles for two-argument MIT cover page elements
+
+Style "Supervisor"
+	LatexName             supervisor
+	LabelString           "Supervisor:"
+	RequiredArgs          1
+
+	Align                 Right
+	Category              FrontMatter
+	InTitle               1
+	LabelSep              " "
+	LabelType             Static
+	LatexType             Command
+	Margin                Static
+End
+
+Style "Department chair"
+	LatexName             chairman
+	LabelString           "Department chair:"
+	RequiredArgs          1
+
+	Align                 Right
+	Category              FrontMatter
+	InTitle               1
+	LabelSep              " "
+	LabelType             Static
+	LatexType             Command
+	Margin                Static
+End
+
+# LyX styles for MIT environments:
+
+Style "MIT abstract page"
+	Margin                Static
+	LatexType             Environment
+	LatexName             abstractpage
+	Category              FrontMatter
+	NextNoIndent          1
+	LeftMargin            MMM
+	RightMargin           MMM
+	ParIndent             MM
+	ItemSep               0
+	TopSep                0.7
+	BottomSep             0.7
+	ParSep                0
+	Align                 Block
+	LabelType             Centered_Top_Environment
+	LabelString           "MIT abstract page"
+	LabelBottomSep        0.5
+	Font
+	  Size                Small
+	EndFont
+	LabelFont
+	  Series              Bold
+	  Size                Large
+	EndFont
+End

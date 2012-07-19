@@ -1,0 +1,19 @@
+#% Do not delete the line below; LyX configuration depends on this
+#  \DeclareLyXModule{Adjust margins}
+# DescriptionBegin
+#   Create a new inset type, "Adjust width", that allows adjusting the text
+#   margins using the LaTeX package 'changepage'.
+# DescriptionEnd
+
+Format 35
+
+InsetLayout "Flex:Adjust width"
+  Decoration classic
+  LabelString "Adjust width"
+  LatexType environment
+  LatexName adjustwidth
+  LyxType custom
+  Preamble
+    \usepackage{changepage}
+  EndPreamble
+End
