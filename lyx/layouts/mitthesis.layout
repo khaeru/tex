@@ -1,13 +1,9 @@
 #% Do not delete the line below; configure depends on this
-# \DeclareLaTeXClass[mitthesis,lgrind.sty]{MIT thesis}
+# \DeclareLaTeXClass[mitthesis]{MIT thesis}
 # Author : Paul Natsuo Kishimoto <mail@paul.kishimoto.name>
 
 Format 35
 Input stdclass.inc
-
-Preamble
-  \usepackage{lgrind}
-EndPreamble
 
 # LyX styles for single-argument MIT cover page elements. The contents are all
 # identical except for the LatexName and LabelString; unfortunately LyX doesn't
