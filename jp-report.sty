@@ -68,7 +68,12 @@
 \renewcommand\abstracttextfont{\vspace{-1em}\justifying\footnotesize\itshape}
 
 % caption: control format of figure and table captions
-\usepackage[indention=.5cm,labelsep=period]{caption}
+\usepackage[indention=.5cm,labelfont=bf,labelsep=period]{caption}
+% sans-serif font for captions
+\DeclareCaptionFont{phv}{\fontfamily{phv}\selectfont}
+\captionsetup{font={phv,footnotesize}}
+% different formatting for tables: flush left
+\captionsetup[table]{indention=0cm,singlelinecheck=off}
 
 % footmisc: position & formatting of footnotes
 \usepackage[hang,flushmargin,bottom]{footmisc}
@@ -149,6 +154,9 @@
 \setlength{\thanksmargin}{0.2in}
 \renewcommand{\footnotelayout}{\hskip -0.13in}
 
+
+\definecolor{lightergray}{gray}{0.85}
+
 % other packages without options. Some packages are omitted here:
 % * graphicx, xcolor — loaded by LyX if graphics appear in the document
 % * xfrac — not in the TeXLive distribution
@@ -156,6 +164,7 @@
 \usepackage{%
   bookmark,%
   ctable,%
+  colortbl,%
   dcolumn,%
   doi,%
   hanging,%
@@ -244,17 +253,6 @@
 \newcolumntype{R}{>{\raggedleft\arraybackslash}X}
 \newcommand{\tableheader}[3]{
 \multicolumn{#1}{#2}{\textbf{#3}}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Captions
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\DeclareCaptionFormat{myformat}{\fontfamily{phv}\selectfont#1#2#3\par}
-\let\oldcaption\caption
-\renewcommand{\caption}[1]{%
-  \captionsetup{format=myformat,font=footnotesize,labelfont=bf}%
-  \oldcaption{#1}}
-\newcommand{\tablecaption}[1]{\captionsetup{singlelinecheck=off}\caption{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Enumerate lists

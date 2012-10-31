@@ -1,92 +1,149 @@
-% MODIFIED FROM:
-%% The Rice Owl Beamer Color Theme ver. 0.00 (2008/10/10)
-%% Copyright 2008 by Daina Chiba (d.chiba@rice.edu)
-%%
-%% http://www.owlnet.rice.edu/~d.chiba/latex.html#beamer
-%% This file may be distributed and/or modified
-%%
-%% 1. under the LaTeX Project Public License and/or
-%% 2. under the GNU Public License.
-%%
+% LaTeX Beamer template for the China Energy & Climate Project
+% 2012-10-11 Paul Natsuo Kishimoto <mail@paul.kishimoto.name>
+% See the accompanying file example_latex.tex for documentation.
 
+%% Options
+% language to use for the CECP 
+\providecommand\cecpbannerlang{en}
+
+%% Packages and package options
+% arev: a font commonly used with Beamer. TTF versions (for Windows) are at:
+%       http://tavmjong.free.fr/FONTS/
+\usepackage{arev}
+\usepackage[T1]{fontenc}
+
+% tikz: for drawing slide backgrounds
 \usepackage{tikz}
-\usetikzlibrary{calc}
+% libraries for tikz
+\usetikzlibrary{calc,fit,scopes}
+% set the default units to be mm
+\tikzset{x=1mm,y=1mm}
+% create an extra layer in front of the main layer (used on title slide)
+\pgfdeclarelayer{fg}
+\pgfsetlayers{main,fg}
 
-% JP colors
+
+%% Colors from the Joint Program style guide
+\definecolor{pms-201}{cmyk}{0.00, 1.00, 0.63, 0.29} % bold red
 \definecolor{pms-282}{cmyk}{1.00, 0.68, 0.00, 0.54} % darkest blue
+\definecolor{pms-284}{cmyk}{0.55, 0.26, 0.00, 0.00} % lighter blue
+\definecolor{pms-2955}{cmyk}{1.00, 0.64, 0.10, 0.31} % third blue
 \definecolor{pms-357}{cmyk}{0.80, 0.00, 1.00, 0.56} % dark green
 
+
+%% General Beamer options
 \mode<presentation>
 
-\defbeamertemplate*{background canvas}{title slide}{
-\begin{tikzpicture}[remember picture,overlay]
-\fill[pms-357] ($(current page.north west) - (0,10.7mm)$) rectangle
-  ($(current page.north east) - (0,16mm)$);
-\fill[pms-357] ($(current page.south west) + (0,5mm)$) rectangle
-  ($(current page.south east) + (0,6mm)$);
-\fill[pms-357] ($(current page.south west) + (0,7mm)$) rectangle
-  ($(current page.south east) + (0,12mm)$);
-\node[anchor=west] at ($(current page.north west) + (4mm,-13.35mm)$) {
-  \includegraphics[width=4cm]{jp/logo.pdf}};
-\node[anchor=east] at ($(current page.north east) - (4mm,13.35mm)$) {
-  \includegraphics[width=4cm]{cecp/th-ieee-logo.png}};
-\node[anchor=south west] at ($(current page.south west) + (4mm,0)$) {
-  \includegraphics[width=7cm]{cecp/logo-text-cn.png}};
-\node[anchor=east,color=white,font=\rmfamily\itshape\bfseries] at
-  ($(current page.south east) + (-4mm,9.25mm)$) {Annual Meeting 2012};
-\end{tikzpicture}
-}
-
-% background template for general slides
-\defbeamertemplate*{background canvas}{cecp}{
-\begin{tikzpicture}[overlay]
-\fill[pms-357] (current page.north west) rectangle (current page.south east);
-\fill[pms-282] ($(current page.north west) + (2mm,-2mm)$) rectangle
-  ($(current page.south east) - (2mm,-2mm)$);
-\fill[white] ($(current page.north west) + (3mm,-3mm)$) rectangle
-  ($(current page.south east) - (3mm,-3mm)$);
-\node[anchor=north west] at ($(current page.north west) + (5mm,-5mm)$)
-  {\includegraphics[height=12mm]{cecp/logo.pdf}};
-\node[anchor=south east,font=\bfseries] at
-  ($(current page.south east) + (-3mm,3mm)$) {\insertframenumber};
-\end{tikzpicture}
-}
-
-\setbeamercovered{transparent}
-\setbeamertemplate{navigation symbols}{}
-\setbeamersize{text margin left=4mm,text margin right=4mm}
+% use animations by default, and show future items semi-transparent
 \beamerdefaultoverlayspecification{<+->}
+\setbeamercovered{transparent}
 
-%\setbeamertemplate{frametitle}[default][center]
-\setbeamercolor{frametitle}{fg=black}
-\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+% do not show Beamer's on-slide previous, next, etc. links
+\setbeamertemplate{navigation symbols}{}
 
-\defbeamertemplate*{frametitle}{CECP}[1][center]{
-  \leavevmode%
-  \hbox{%
-  \hspace{14mm}%
-  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
-  \@tempdima=\textwidth%
-  \advance\@tempdima by\beamer@leftmargin%
-  \advance\@tempdima by-22mm%
-  \advance\@tempdima by\beamer@rightmargin%
-  \begin{beamercolorbox}[sep=0.3cm,#1,wd=\the\@tempdima]{frametitle}
-    \usebeamerfont{frametitle}%
-    \vbox{}\vskip-1ex%
-    \if@tempswa\else\csname beamer@fte#1\endcsname\fi%
-    \strut\insertframetitle\strut\par%
-    {%
-      \ifx\insertframesubtitle\@empty%
-      \else%
-      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
-      \fi
-    }%
-    \vskip-1ex%
-    \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
-  \end{beamercolorbox}%
-  }
+% smaller side margins
+\setbeamersize{text margin left=4mm,text margin right=4mm}
+
+% use a light-ish blue for 'structure', including frame titles, bullets, list
+% numbering, and highlighted text
+\setbeamercolor{structure}{fg=pms-2955}
+% use a red color for \alert{} text
+\setbeamercolor{alerted text}{fg=pms-201}
+
+
+%% Title slide layout
+% text is white
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{author}{fg=white}
+\setbeamercolor{date}{fg=white}
+
+% shrink author and date
+\setbeamerfont{author}{size=\footnotesize}
+\setbeamerfont{date}{size=\footnotesize}
+
+% layout of the title slide including background images
+\setbeamertemplate{title page}{%
+  \begin{tikzpicture}[
+    overlay,
+    remember picture,
+    every node/.style={inner sep=0mm}
+    ]
+    % background image
+    \node [anchor=north west]
+      at (current page.north west)
+      {\includegraphics[width=\paperwidth, height=\paperheight]
+        {\inserttitlegraphic}
+      };
+    % band behind the JP and Tsinghua IEEE banners
+    \fill [pms-282]
+      ($(current page.north west) - (0,5)$) rectangle
+      ($(current page.north east) - (0,21)$);
+    % banner images
+    { [every node/.style={fill=white,inner sep=0.75mm}]
+      % JP and Tsinghua IEEE banners on top band
+      \node [anchor=north west] at ($(current page.north west) + (2,-7)$) {
+        \href{http://globalchange.mit.edu}{\includegraphics[height=10mm]%
+        {cecp/banner-jpspgc-dark}}};
+      \node [anchor=north east] at ($(current page.north east) - (2,7)$) {
+        \href{http://www.tsinghua.edu.cn/publish/ineten/5701/2011/20110301155606097634806/20110301155606097634806_.html}%
+        {\includegraphics[height=10mm]{cecp/banner-ieee}}};
+      % CECP banner in bottom right. Use tikz layers to draw this *first* so we
+      % can later refer to its position, but have it appear on top of later
+      % elements
+      \begin{pgfonlayer}{fg}
+        \node [anchor=south east] (cecpbanner) at
+          ($(current page.south east) - (3,-3)$) {
+          \href{http://globalchange.mit.edu/CECP}{\includegraphics%
+          [width=0.4\paperwidth]{cecp/banner-cecp-\cecpbannerlang}}};
+      \end{pgfonlayer}
+    }
+    % transparent backdrops
+    { [pms-282,fill opacity=0.7]
+      % …for title
+      \fill (current page.west) rectangle
+        ($(current page.north east) - (0,26)$);
+      % …for author and date
+      \coordinate (authornw) at ($(cecpbanner.north west) + (0,19)$);
+      \fill ($(authornw) + (-1,-1)$) rectangle
+        ($(cecpbanner.south east) + (1,-1)$);
+    }
+    % title and subtitle
+    \node [anchor=north,align=center,text width=\paperwidth] at
+      ($(current page.north) - (0,28)$) {
+      \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle \\
+      \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle};
+    % author and date. Use the 'fit' TikZ package to ensure the width matches
+    % the CECP banner
+    \node [fit=(authornw) (cecpbanner.north east),align=left] {
+      \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor \\
+      \vspace*{2mm}
+      \usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate};
+  \end{tikzpicture}
 }
 
-\addtobeamertemplate{footnote}{}{\vspace{3mm}}
 
-\mode<all>
+%% General slide layout
+% large, boldface, left-aligned title
+\setbeamertemplate{frametitle}[default][left]
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+
+% smaller footnotes
+\setbeamerfont{footnote}{size=\scriptsize}
+
+% slide background
+\setbeamertemplate{background}{%
+  \begin{tikzpicture}[
+    overlay,
+    remember picture,
+    every node/.style={inner sep=0mm}
+    ]
+    % the CECP logo, bottom right corner
+    \node [anchor=south east] at ($(current page.south east) - (4,-2)$) {
+      \href{http://globalchange.mit.edu/CECP}%
+        {\includegraphics[height=10mm]{cecp/logo-cecp}}
+      };
+    % slide number, bottom right corner
+    \node [anchor=south east,font=\small] at
+      ($(current page.south east) + (-1,1)$) {\insertframenumber};
+  \end{tikzpicture}
+}
