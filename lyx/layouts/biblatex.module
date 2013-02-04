@@ -1,0 +1,12 @@
+#\DeclareLyXModule{Biblatex-citation-styles}
+#DescriptionBegin
+#A prerequisite for using the biblatex package. This module simply
+#enables the author/year citation styles without actually loading natbib.
+#Biblatex itself needs to be loaded manually. Cf.
+#http://wiki.lyx.org/BibTeX/Biblatex
+#DescriptionEnd
+
+Format 11
+
+# this is biblatex actually
+Provides natbib		1
