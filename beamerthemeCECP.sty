@@ -20,7 +20,6 @@
 \tikzset{x=1mm,y=1mm}
 % create an extra layer in front of the main layer (used on title slide)
 \pgfdeclarelayer{fg}
-\pgfsetlayers{main,fg}
 
 
 %% Colors from the Joint Program style guide
@@ -63,6 +62,8 @@
 
 % layout of the title slide including background images
 \setbeamertemplate{title page}{%
+\pgfsetlayers{main,fg}
+
   \begin{tikzpicture}[
     overlay,
     remember picture,
