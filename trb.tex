@@ -1,0 +1,37 @@
+% Transportation Review Board manuscript formatting
+% 
+% This file largely adapted from http://ite.ce.gatech.edu/?p=681, but meant for
+% inclusion in LyX documents. Some elements from the TRB instructions to authors
+% may be handled using the LyX UI, including:
+% - Font selection (Times Roman)
+% - Margins
+
+% Line numbering
+\usepackage[pagewise]{lineno}
+\renewcommand\linenumberfont{\normalfont}
+
+% Citations and bibliography entries
+\renewcommand{\citenumfont}[1]{\textit{#1}}
+
+
+\usepackage[tiny,rm]{titlesec}
+\renewcommand*{\refname}{\uppercase{References}}
+\titleformat{\section}{\bfseries}{}{0pt}{\uppercase}
+\titlespacing*{\section}{0pt}{12pt}{*0}
+\titleformat{\subsection}{\bfseries}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{12pt}{*0}
+\titleformat{\subsubsection}{\itshape}{}{0pt}{}
+\titlespacing*{\subsubsection}{0pt}{12pt}{*0}
+
+%\usepackage{ccaption}
+%\usepackage{amsmath}
+%\makeatletter
+%\renewcommand{\fnum@figure}{\textbf{FIGURE~\thefigure} }
+%\renewcommand{\fnum@table}{\textbf{TABLE~\thetable} }
+%\makeatother
+%\captiontitlefont{\bfseries \boldmath}
+%\captiondelim{\;}
+
+\usepackage{titling}
+\pretitle{\begin{flushleft}}
+\posttitle{\end{flushleft}}

@@ -132,7 +132,7 @@
 \setbeamerfont{footnote}{size=\scriptsize}
 
 % slide background
-\setbeamertemplate{background}{%
+\defbeamertemplate{background}{cecp}{%
   \begin{tikzpicture}[
     overlay,
     remember picture,
@@ -148,3 +148,4 @@
       ($(current page.south east) + (-1,1)$) {\insertframenumber};
   \end{tikzpicture}
 }
+\setbeamertemplate{background}[cecp]
