@@ -6,22 +6,41 @@
 % - Font selection (Times Roman)
 % - Margins
 
-% Line numbering
+% abstract
+\usepackage{abstract}
+\renewcommand{\absnamepos}{flushleft}
+\setlength{\absleftindent}{0pt}
+\setlength{\absrightindent}{0pt}
+\setlength{\abstitleskip}{-24pt}
+\renewcommand{\abstitlestyle}[1]{\uppercase{#1}}
+\renewcommand{\abstractnamefont}{\normalfont\bfseries}
+\renewcommand{\abstracttextfont}{\normalfont}
+
+% caption:
+\usepackage[font=bf,labelsep=quad,justification=RaggedRight]{caption}
+\DeclareCaptionLabelFormat{uc}{\MakeUppercase{#1} #2}
+\captionsetup{labelformat=uc}
+
+% fancyhdr: Page headers
+\renewcommand{\headrulewidth}{0pt}
+
+% lineno: Line numbering
 \usepackage[pagewise]{lineno}
 \renewcommand\linenumberfont{\normalfont}
 
-% Citations and bibliography entries
+% natbib: Citations and bibliography entries
 \renewcommand{\citenumfont}[1]{\textit{#1}}
 \setcitestyle{round}
 
+% titlesec: 
 \usepackage[tiny,rm]{titlesec}
 \renewcommand*{\refname}{\uppercase{References}}
 \titleformat{\section}{\bfseries}{}{0pt}{\uppercase}
-\titlespacing*{\section}{0pt}{12pt}{*0}
+\titlespacing*{\section}{0pt}{\baselineskip}{\baselineskip}
 \titleformat{\subsection}{\bfseries}{}{0pt}{}
-\titlespacing*{\subsection}{0pt}{12pt}{*0}
+\titlespacing*{\subsection}{0pt}{\baselineskip}{\baselineskip}
 \titleformat{\subsubsection}{\itshape}{}{0pt}{}
-\titlespacing*{\subsubsection}{0pt}{12pt}{*0}
+\titlespacing*{\subsubsection}{0pt}{\baselineskip}{\baselineskip}
 
 %\usepackage{ccaption}
 %\usepackage{amsmath}
