@@ -1,0 +1,66 @@
+\ProvidesPackage{beamerthemeCECPPoster}
+
+\mode<presentation>
+
+%% Colors from the Joint Program style guide
+\definecolor{pms-201}{cmyk}{0.00, 1.00, 0.63, 0.29} % bold red
+\definecolor{pms-282}{cmyk}{1.00, 0.68, 0.00, 0.54} % darkest blue
+\definecolor{pms-284}{cmyk}{0.55, 0.26, 0.00, 0.00} % lighter blue
+\definecolor{pms-2955}{cmyk}{1.00, 0.64, 0.10, 0.31} % third blue
+\definecolor{pms-357}{cmyk}{0.80, 0.00, 1.00, 0.56} % dark green
+
+\setbeamercolor{background canvas}{bg=pms-284!50}
+
+% headline colors and fonts
+\setbeamercolor{headline}{fg=white,bg=pms-282}
+\setbeamercolor{lower separation line head}{bg=pms-357}
+\setbeamerfont{headline}{size=\large}
+\setbeamerfont{title in headline}{size=\veryHuge,series=\bfseries}
+\setbeamerfont{author in headline}{series=\bfseries}
+
+% block enviroment
+\setbeamercolor{block title}{fg=white,bg=pms-282}
+\setbeamercolor{block body}{bg=white}
+\setbeamerfont{block title}{size=\Huge,series=\bfseries}
+\addtobeamertemplate{block end}{}{\vspace*{1cm}}
+
+
+\setbeamertemplate{headline}{
+\leavevmode
+
+\begin{beamercolorbox}[wd=\paperwidth]{headline}
+\begin{columns}[T]
+  \begin{column}{.02\paperwidth}
+  \end{column}
+  \begin{column}{.07\paperwidth}
+    \begin{center}
+      \includegraphics[width=.6\linewidth]{logo-mit}
+      \includegraphics[width=.6\linewidth]{logo-thu}
+    \end{center}
+    \vskip1ex
+  \end{column}
+  \begin{column}{.675\paperwidth}
+    \vskip4ex
+    \raggedleft
+    \usebeamerfont{headline}
+    {\usebeamercolor{title in headline}\usebeamerfont{title in headline}%
+      \inserttitle\\[1ex]}
+    {\usebeamercolor{author in headline} \insertauthor\\[1ex]}
+    {\usebeamercolor{institute in headline} \insertinstitute\\[1ex]}
+  \end{column}
+  \begin{column}{.25\paperwidth}
+    \vskip1cm
+    \begin{center}
+      \includegraphics[width=.7\linewidth]{banner-cecp-en}
+    \end{center}
+    \vskip1.5cm
+  \end{column}
+  \begin{column}{.03\paperwidth}
+  \end{column}
+\end{columns}
+\end{beamercolorbox}
+
+\begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
+\rule{0pt}{2pt}
+\end{beamercolorbox}
+}
