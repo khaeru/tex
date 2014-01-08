@@ -1,2 +1,0 @@
-luaunit:
-	git clone https://github.com/luaforge/luaunit.git

@@ -1,0 +1,52 @@
+%--------------------------------------------
+%
+% Package pgfplots
+%
+% Provides a user-friendly interface to create function plots (normal
+% plots, semi-logplots and double-logplots).
+% 
+% It is based on Till Tantau's PGF package.
+%
+% Copyright 2013 by Christian Feuersaenger
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+% 
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+% 
+% You should have received a copy of the GNU General Public License
+% along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%--------------------------------------------
+
+\usetikzlibrary{intersections}
+
+% Defines \pgfplotsretval to contain a modified path including the
+% intersections of a preceding call to \pgfintersectionofpaths.
+%
+% #1 : should be '1' if the FIRST argument of
+% \pgfintersectionofpaths should be used and '2' the SECOND
+% argument of \pgfintersectionofpaths should be used on input.
+% 
+%  On output, \pgfplotsretval will be assigned.
+\def\pgfplots@insert@intersections@in@path#1{%
+	\ifcase#1\relax
+		% 0
+		\pgfplots@error{illegal argument supplied.}
+	\or
+		\let\pgfplots@loc@TMPa=\pgf@intersect@path@a
+	\or
+		\let\pgfplots@loc@TMPa=\pgf@intersect@path@b
+	\else
+		\pgfplots@error{illegal argument supplied.}
+	\fi
+	\show\pgfplots@loc@TMPa
+}%
+
+
+\endinput
