@@ -49,6 +49,13 @@
 % use a red color for \alert{} text
 \setbeamercolor{alerted text}{fg=pms-201}
 
+% blocks
+\setbeamercolor{block title}{bg=pms-282,fg=white}
+\setbeamercolor{block body}{bg=pms-284}
+
+\setbeamercolor{block title alerted}{bg=pms-201,fg=white}
+%\setbeamercolor{block body alerted}{bg=pms-284}
+
 
 %% Title slide layout
 % text is white
@@ -105,7 +112,7 @@
         ($(current page.north east) - (0,26)$);
       % …for author and date
       \coordinate (authornw) at ($(cecpbanner.north west) + (0,19)$);
-      \fill ($(authornw) + (-1,-1)$) rectangle
+      \fill ($(authornw) + (-1,1)$) rectangle
         ($(cecpbanner.south east) + (1,-1)$);
     }
     % title and subtitle
@@ -115,9 +122,12 @@
       \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle};
     % author and date. Use the 'fit' TikZ package to ensure the width matches
     % the CECP banner
-    \node [fit=(authornw) (cecpbanner.north east),align=left] {
-      \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor \\
-      \vspace*{2mm}
+    \node [
+      fit = (authornw) (cecpbanner.north east),
+      align = left,
+      execute at begin node = \setlength{\baselineskip}{1em},
+      inner sep = 0pt] {
+      \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor \\[2mm]
       \usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate};
   \end{tikzpicture}
 }
