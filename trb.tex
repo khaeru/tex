@@ -7,19 +7,19 @@
 % - Margins
 
 % abstract
-\usepackage{abstract}
+\usepackage[style]{abstract}
 \renewcommand{\absnamepos}{flushleft}
 \setlength{\absleftindent}{0pt}
 \setlength{\absrightindent}{0pt}
-\setlength{\abstitleskip}{-24pt}
-\renewcommand{\abstitlestyle}[1]{\uppercase{#1}}
-\renewcommand{\abstractnamefont}{\normalfont\bfseries}
+\setlength{\abstitleskip}{0pt}
+\renewcommand{\abstitlestyle}[1]{\normalfont\bfseries\MakeUppercase{#1}}
 \renewcommand{\abstracttextfont}{\normalfont}
 
 % caption:
 \usepackage[font=bf,labelsep=quad,justification=RaggedRight]{caption}
 \DeclareCaptionLabelFormat{uc}{\MakeUppercase{#1} #2}
 \captionsetup{labelformat=uc}
+\captionsetup[subfloat]{labelfont=normalsize}
 
 % fancyhdr: Page headers
 \renewcommand{\headrulewidth}{0pt}
@@ -31,6 +31,7 @@
 % natbib: Citations and bibliography entries
 \renewcommand{\citenumfont}[1]{\textit{#1}}
 \setcitestyle{round}
+\setlength{\bibsep}{0pt}
 
 % titlesec: 
 \usepackage[tiny,rm]{titlesec}
