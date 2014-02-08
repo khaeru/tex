@@ -3,14 +3,7 @@
 \begin_document
 \begin_header
 \textclass article
-\begin_preamble
-\usepackage[format=hang,labelsep=endash,font=small,labelfont=bf]{caption}
-\end_preamble
 \use_default_options true
-\begin_modules
-customHeadersFooters
-enumitem
-\end_modules
 \maintain_unincluded_children false
 \language canadian
 \language_package default
@@ -31,7 +24,6 @@ enumitem
 \output_sync 0
 \bibtex_command default
 \index_command default
-\float_placement ph
 \paperfontsize 12
 \spacing single
 \use_hyperref true
@@ -44,8 +36,8 @@ enumitem
 \pdf_colorlinks false
 \pdf_backref false
 \pdf_pdfusetitle true
-\papersize default
-\use_geometry true
+\papersize a4paper
+\use_geometry false
 \use_amsmath 1
 \use_esint 1
 \use_mhchem 1
@@ -60,14 +52,10 @@ enumitem
 \shortcut idx
 \color #008000
 \end_index
-\leftmargin 2.5cm
-\topmargin 1cm
-\rightmargin 2.5cm
-\bottommargin 1.5cm
 \secnumdepth 3
 \tocdepth 3
-\paragraph_separation indent
-\paragraph_indentation default
+\paragraph_separation skip
+\defskip bigskip
 \quotes_language english
 \papercolumns 1
 \papersides 2
