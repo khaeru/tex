@@ -13,21 +13,31 @@
 
 % headline colors and fonts
 \setbeamercolor{headline}{fg=white,bg=pms-282}
-\setbeamercolor{lower separation line head}{bg=pms-357}
+\setbeamercolor{separation line}{bg=pms-357}
 \setbeamerfont{headline}{size=\large}
-\setbeamerfont{title in headline}{size=\veryHuge,series=\bfseries}
+\setbeamerfont{title in headline}{size=\VERYHuge,series=\bfseries}
 \setbeamerfont{author in headline}{series=\bfseries}
+
+% footline colors and fonts
+\setbeamercolor{footline}{fg=white,bg=pms-282}
+\setbeamerfont{footline}{size=\normalsize}
+
+\setbeamertemplate{navigation symbols}{}
 
 % block enviroment
 \setbeamercolor{block title}{fg=white,bg=pms-282}
 \setbeamercolor{block body}{bg=white}
 \setbeamerfont{block title}{size=\large,series=\bfseries}
+\setbeamercolor{block title alerted}{fg=white,bg=pms-201}
+\setbeamercolor{block body alerted}{bg=white}
 \addtobeamertemplate{block end}{}{\vspace*{1cm}}
+\addtobeamertemplate{block alerted end}{}{\vspace*{1cm}}
+
 
 % structure text
 \setbeamercolor{structure}{fg=pms-282}
 \setbeamerfont{structure}{size=\large}
-\setbeamertemplate{structure end}{\color{fg}\hrulefill}
+\setbeamertemplate{structure end}{\color{fg}\hrule}
 
 \setbeamertemplate{headline}{
 \leavevmode
@@ -36,7 +46,7 @@
 \begin{columns}[T]
   \begin{column}{.02\paperwidth}\end{column}
   \begin{column}{.23\paperwidth}%
-    \vspace{5ex}
+    \vspace{8ex}
     \begin{beamercolorbox}[rounded=true]{block body}
       \centering
       \vspace{2ex} % keep the following blank line
@@ -69,5 +79,24 @@
 
 \begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
 \rule{0pt}{1ex}
+\end{beamercolorbox}
+}
+
+
+\setbeamertemplate{footline}{
+\begin{beamercolorbox}[wd=\paperwidth]{upper separation line foot}
+\rule{0pt}{0.5ex}
+\end{beamercolorbox}
+
+\begin{beamercolorbox}[ht=4ex,leftskip=1cm,rightskip=1cm]{footline}%
+{\bfseries\ttfamily http://globalchange.mit.edu/CECP} \hfill
+Transportation Review Board 93rd Annual Meeting, 12--16 January 2014, Washington,
+D.C., United States. Session 528: Transportation Energy \& Climate Change,
+presentation number 14-2101.
+\vskip1ex
+\end{beamercolorbox}
+
+\begin{beamercolorbox}[wd=\paperwidth]{lower separation line foot}
+\rule{0pt}{0.5ex}
 \end{beamercolorbox}
 }
