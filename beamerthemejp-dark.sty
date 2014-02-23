@@ -1,0 +1,32 @@
+% from http://www.shawnlankton.com/2008/02/beamer-and-latex-with-keynote-theme/,
+% with modifications by Paul Natuso Kishimoto <mail@paul.kishimoto.name>
+\usepackage[T1]{fontenc}
+\usepackage{arev}
+\usepackage{tikz}
+  \tikzset{every picture/.style={color=white, thick}}
+
+\usepackage{natbib}
+  \bibliographystyle{plainnat}
+  % suppress an error
+  \def\newblock{}
+  % suppress creating a new \section for the bibliography
+  \renewcommand{\bibsection}{}
+
+\definecolor{grey-0.8}{rgb}{0.8,0.8,0.8}
+\definecolor{grey-0.4}{rgb}{0.4,0.4,0.4}
+
+\useoutertheme[subsection=false]{miniframes}
+  \setbeamercolor{section in head/foot}{fg=grey-0.8}
+
+\setbeamercolor{structure}{fg=grey-0.8}
+
+\setbeamertemplate{frametitle}[default][center]
+\setbeamerfont{frametitle}{size=\huge}
+
+\setbeamercolor{normal text}{bg=black, fg=white}
+
+\setbeamertemplate{blocks}[rounded]
+\setbeamercolor{block body}{bg=grey-0.4}
+
+\setbeamertemplate{note page}[compress]
+\setbeamercolor{note page}{fg=black}
