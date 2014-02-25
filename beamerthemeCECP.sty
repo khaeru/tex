@@ -159,3 +159,15 @@
   \end{tikzpicture}
 }
 \setbeamertemplate{background}[cecp]
+
+% automatic title frames at the start of each section
+\setbeamerfont{section title}{size=\Huge}
+\setbeamertemplate{section page}{
+  \begin{centering}
+    \begin{beamercolorbox}[sep=12pt,center]{part title}
+      \usebeamerfont{section title}\insertsection\par
+    \end{beamercolorbox}
+  \end{centering}
+}
+
+\AtBeginSection{\frame{\sectionpage}}
