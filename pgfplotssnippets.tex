@@ -1,14 +1,18 @@
 \pgfplotsset{
   % For filtering data: http://tex.stackexchange.com/a/98016
-  % Both pgfplots and pgfplotstable must be loaded
+  % - Both pgfplots and pgfplotstable must be loaded.
+  % - The table file must be specified directly, i.e.:
+  %     \addplot table [x = xcol, y = ycol, discard if not = {z}{-4}] {ex.csv};
+  %   not using a macro, which will produce no output:
+  %     \pgfplotstableread{ex.csv}\excsv
+  %     \addplot table [x = xcol, y = ycol, discard if not = {z}{-4}] \excsv;
   discard if not/.style 2 args = {
     x filter/.code = {
       \edef\tempa{\thisrow{#1}}
       \edef\tempb{#2}
       \ifx\tempa\tempb
       \else
-        \def\pgfmathresult{inf}
+        \def\pgfmathresult{}
       \fi
-      }
-    }
+      }}
   }
