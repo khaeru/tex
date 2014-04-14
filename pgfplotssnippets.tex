@@ -1,0 +1,14 @@
+\pgfplotsset{
+  % For filtering data: http://tex.stackexchange.com/a/98016
+  % Both pgfplots and pgfplotstable must be loaded
+  discard if not/.style 2 args = {
+    x filter/.code = {
+      \edef\tempa{\thisrow{#1}}
+      \edef\tempb{#2}
+      \ifx\tempa\tempb
+      \else
+        \def\pgfmathresult{inf}
+      \fi
+      }
+    }
+  }
