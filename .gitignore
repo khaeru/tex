@@ -1,7 +1,2 @@
 *.lyx~
-lyx/*.lst
-lyx/cache/
-lyx/configure.log
-lyx/lyxrc.defaults
-lyx/session
 jp-report.sty
