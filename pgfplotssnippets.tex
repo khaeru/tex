@@ -14,5 +14,23 @@
       \else
         \def\pgfmathresult{}
       \fi
-      }}
+      }},
+  % For multiple parallel versions of figures:
+  layout/.is choice,
+  layout/.initial = default,
+  % in a document using this snippet, use the following:
+  %
+  %layouts/.style n args = {3}{
+  %  layout/default/.style = {#1},
+  %  layout/b/.style = {#2},
+  %  layout/c/.style = {#3},
+  %  },
+  %
+  % to define, for example, three different versions of the document. Then, in
+  % the options to a figure, use:
+  %
+  % layouts = {thick}{very}{ultra thick, blue},
+  % layout = c,
+  %
+  % to choose the style 'ultra thick, blue'.
   }

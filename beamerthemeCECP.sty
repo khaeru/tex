@@ -3,7 +3,7 @@
 % See the accompanying file example_latex.tex for documentation.
 
 %% Options
-% language to use for the CECP 
+% language to use for the CECP logo
 \providecommand\cecpbannerlang{en}
 
 %% Packages and package options
@@ -11,6 +11,14 @@
 %       http://tavmjong.free.fr/FONTS/
 \usepackage{arev}
 \usepackage[T1]{fontenc}
+
+% CJK: for Chinese text
+\usepackage{CJKutf8}
+% command \zh for Chinese characters, e.g. \zh{中文}
+% TODO: make this a no-op if the document is already in CJK
+\newcommand{\zh}[1]{\begin{CJK}{UTF8}{gbsn}#1\end{CJK}}
+% TODO: add a \zhen command for bilingual text
+
 
 % tikz: for drawing slide backgrounds
 \usepackage{tikz}
@@ -149,13 +157,14 @@
     every node/.style={inner sep=0mm}
     ]
     % the CECP logo, bottom right corner
-    \node [anchor=south east] at ($(current page.south east) - (4,-2)$) {
+    \node [anchor=south east] (cecpslidelogo)
+      at ($(current page.south east) - (1,-1)$) {
       \href{http://globalchange.mit.edu/CECP}%
         {\includegraphics[height=10mm]{cecp/logo-cecp}}
       };
     % slide number, bottom right corner
-    \node [anchor=south east,font=\small] at
-      ($(current page.south east) + (-1,1)$) {\insertframenumber};
+    \node [anchor=center,font=\tiny\bfseries,white] at
+      ($(cecpslidelogo.west) + (3.4,0)$) {\insertframenumber};
   \end{tikzpicture}
 }
 \setbeamertemplate{background}[cecp]
