@@ -1,0 +1,34 @@
+% gettext for LaTeX
+%
+% This package supports LaTeX documents which can be compiled into multiple
+% languages. The goal of the implementation is to make language switch possible
+% with only *one* change to the source document: setting \languagename (as used
+% by babel, and others) to the desired language for translated strings.
+%
+% The LaTeX document set the document language (\languagename, as used by babel)
+% before including this package in the preamble:
+%
+%   \usepackage{gettext}
+%
+% Within the document, the command \gettext can be used any number of times.
+%
+%   \gettext{Hello, world!}
+%
+% To prepare the translation(s), the script 'texgettext' (analogous to
+% xgettext) is run on the document:
+%
+%   $ texgettext input.tex
+%
+% This produces input.pot, a translation template. The user must produce
+% translation files, e.g. german.po. Then the script 'texmsgfmt' (analogous to
+% msgfmt) is run on the translation file:
+%
+%   $ texmsgfmt german.po
+%
+% This produces german.tmo. (.tmo is a extension)
+%
+% When the LaTeX document is compiled, `gettext` detects the \languagename and
+% loads the corresponding message file. Each call to \gettext
+% is replaced by the text specified in the message file.
+
+\RequirePackage{babel}
