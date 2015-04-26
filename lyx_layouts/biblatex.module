@@ -1,12 +1,58 @@
-#\DeclareLyXModule{Biblatex-citation-styles}
-#DescriptionBegin
-#A prerequisite for using the biblatex package. This module simply
-#enables the author/year citation styles without actually loading natbib.
-#Biblatex itself needs to be loaded manually. Cf.
-#http://wiki.lyx.org/BibTeX/Biblatex
-#DescriptionEnd
+# \DeclareLyXModule{Biblatex}
+# DescriptionBegin
+#   A prerequisite for using the biblatex package. This module simply
+#   enables the author/year citation styles without actually loading natbib.
+#   Biblatex itself needs to be loaded manually. Cf.
+#   http://wiki.lyx.org/BibTeX/Biblatex
+# DescriptionEnd
+# Excludes: basic | natbib | jurabib
 
-Format 11
+# Author: Paul Natsuo Kishimoto <mail@paul.kishimoto.name>
 
-# this is biblatex actually
-Provides natbib		1
+Format 49
+
+Provides natbib 1
+Provides natbib-internal 1
+
+#AddToPreamble
+#	\usepackage[
+#	  style = authoryear-comp,
+#		natbib = true,
+#	  ]{biblatex}
+#EndPreamble
+
+#CiteEngineType authoryear
+
+#CiteEngine authoryear
+#	cite [][]
+#	parencite [][]
+#	nocite
+#End
+
+#CiteFormat authoryear
+#	# translatable bits
+#	_notcited not cited
+#	_addtobib Add to bibliography only.
+
+#	# macros
+#	!open (
+#	!sep ,
+#	!close )
+
+#	!startlink {!<a href='#LyXCite-%clean:key%'>!}
+#	!endlink {!</a>!}
+
+#	!cite %!startlink%{%label%[[%label%]][[{%numericallabel%[[%numericallabel%]][[#%key%]]}]]}%!endlink%%!nextcite%
+#	!citet %!startlink%%!abbrvauthor%%!endlink%%!sep% %!year%%!nextcitet%
+
+#	!nextcite {%next%[[%!sep% %!cite%]]}
+#	!nexthashkey {%next%[[%!sep% #%key%%!nexthashkey%]]}
+#	!nextkey {%next%[[%!sep% %key%%!nextkey%]]}
+
+#	!textafter {%textafter%[[, %textafter%]]}
+
+#	# cite styles
+#	cite %!citet%%!textafter%
+#	parencite %!open%%!citet%%!textafter%%!close%
+#	nocite {%dialog%[[%_addtobib%]][[%key%%!nextkey% (%_notcited%)]]}
+#End
