@@ -1,3 +1,20 @@
+\makeatletter
+\pgfplotstableset{
+  % For filtering data: http://tex.stackexchange.com/a/98016
+  discard if not/.style 2 args={
+    row predicate/.code={
+      \def\pgfplotstable@loc@TMPd{\pgfplotstablegetelem{##1}{#1}\of}
+      \expandafter\pgfplotstable@loc@TMPd\pgfplotstablename
+      \edef\tempa{\pgfplotsretval}
+      \edef\tempb{#2}
+      \ifx\tempa\tempb
+      \else
+        \pgfplotstableuserowfalse
+      \fi
+      }
+    }
+  }
+\makeatother
 \pgfplotsset{
   % For filtering data: http://tex.stackexchange.com/a/98016
   % - Both pgfplots and pgfplotstable must be loaded.
