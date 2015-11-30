@@ -1,5 +1,5 @@
 % Transportation Review Board manuscript formatting
-% 
+%
 % This file largely adapted from http://ite.ce.gatech.edu/?p=681, but meant for
 % inclusion in LyX documents. Some elements from the TRB instructions to authors
 % may be handled using the LyX UI, including:
@@ -28,12 +28,21 @@
 \usepackage[pagewise]{lineno}
 \renewcommand\linenumberfont{\normalfont}
 
-% natbib: Citations and bibliography entries
-\renewcommand{\citenumfont}[1]{\textit{#1}}
-\setcitestyle{round}
-\setlength{\bibsep}{0pt}
+%% natbib: Citations and bibliography entries
+%\renewcommand{\citenumfont}[1]{\textit{#1}}
+%\setcitestyle{round}
+%\setlength{\bibsep}{0pt}
 
-% titlesec: 
+\DeclareCiteCommand{\citep}[\mkbibparens]
+  {\usebibmacro{cite:init}%
+   \usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   {\itshape\usebibmacro{cite:comp}}}
+  {}
+  {\usebibmacro{cite:dump}%
+   \usebibmacro{postnote}}
+
+% titlesec:
 \usepackage[tiny,rm]{titlesec}
 \renewcommand*{\refname}{\uppercase{References}}
 \titleformat{\section}{\bfseries}{}{0pt}{\uppercase}
