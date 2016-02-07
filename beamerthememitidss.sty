@@ -1,11 +1,12 @@
 \mode<presentation>
 
 % github.com/matze/mtheme
-\usetheme{m}
-\metroset{
+\usetheme[
   block = fill,
+%  numbering = fraction,
   progressbar = frametitle,
-  }
+  ]{metropolis}
+\metroset{inner/titleformat section = allcaps}
 
 \definecolor{idssblue1}{RGB}{10,83,126}
 \definecolor{idssblue2}{RGB}{31,118,170}
@@ -16,12 +17,30 @@
 \definecolor{idssgray3}{RGB}{149,149,149}
 \definecolor{idssgray4}{RGB}{235,235,235}
 
+\hypersetup{colorlinks, citecolor = idssgreen, linkcolor = }
+
+\setbeamertemplate{frame numbering}{
+%  \insertsection\ \insertframenumber/\inserttotalframenumber
+  \insertsection\ {\bfseries \insertframenumber}/\ref{final-page}
+}
+
 \setbeamercolor{normal text}{fg=idssgray1,bg=idssgray4}
 
-\setbeamercolor{alerted text}{fg=idssgreen}
-\setbeamercolor{example text}{fg=idssblue3}
+\setbeamercolor{alerted text}{fg=idssblue3}
+\setbeamercolor{example text}{fg=idssgreen}
 
 \titlegraphic{\hfill\includegraphics[height=3cm]{idss-0}}
+
+\setbeamertemplate{title}{
+  \parbox{0.8\textwidth}{
+  \raggedright%
+  \linespread{1.0}%
+  \@metropolis@titleformat{\inserttitle}%
+  \par%
+  \vspace*{0.5em}
+  }
+}
+
 
 \mode
 <all>
