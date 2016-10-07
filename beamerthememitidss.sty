@@ -5,8 +5,8 @@
   block = fill,
 %  numbering = fraction,
   progressbar = frametitle,
+  titleformat plain = allcaps,
   ]{metropolis}
-\metroset{inner/titleformat section = allcaps}
 
 \definecolor{idssblue1}{RGB}{10,83,126}
 \definecolor{idssblue2}{RGB}{31,118,170}
@@ -35,12 +35,10 @@
   \parbox{0.8\textwidth}{
   \raggedright%
   \linespread{1.0}%
-  \@metropolis@titleformat{\inserttitle}%
+  \inserttitle%
   \par%
   \vspace*{0.5em}
   }
 }
 
-
-\mode
-<all>
+\mode<all>
