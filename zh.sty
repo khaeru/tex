@@ -1,3 +1,6 @@
 \ProvidesPackage{zh}[2016/07/13 Short command for Chinese characters]
 \RequirePackage{CJKutf8}
+% command \zh for Chinese characters, e.g. \zh{中文}
+% TODO: make this a no-op if the document is already in CJK
 \newcommand{\zh}[1]{\begin{CJK}{UTF8}{gbsn}#1\end{CJK}}
+% TODO: add a \zhen command for bilingual text

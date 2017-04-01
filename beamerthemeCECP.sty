@@ -9,16 +9,9 @@
 %% Packages and package options
 % arev: a font commonly used with Beamer. TTF versions (for Windows) are at:
 %       http://tavmjong.free.fr/FONTS/
-\usepackage{arev}
-\usepackage[T1]{fontenc}
-
-% CJK: for Chinese text
-\usepackage{CJKutf8}
-% command \zh for Chinese characters, e.g. \zh{中文}
-% TODO: make this a no-op if the document is already in CJK
-\newcommand{\zh}[1]{\begin{CJK}{UTF8}{gbsn}#1\end{CJK}}
-% TODO: add a \zhen command for bilingual text
-
+% 2017-03-25 commented: not needed for xelated.
+%\usepackage{arev}
+%\usepackage[T1]{fontenc}
 
 % tikz: for drawing slide backgrounds
 \usepackage{tikz}
@@ -29,6 +22,8 @@
 % create an extra layer in front of the main layer (used on title slide)
 \pgfdeclarelayer{fg}
 
+% zh: for Chinese text
+\usepackage{zh}
 
 %% Colors from the Joint Program style guide
 \definecolor{pms-201}{cmyk}{0.00, 1.00, 0.63, 0.29} % bold red
