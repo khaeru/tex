@@ -1,0 +1,7 @@
+\ProvidesPackage{ifjob}[2017/04/24 Command to test the \jobname]
+\RequirePackage{etoolbox}
+\newcommand{\ifjob}[3]{
+  \edef\testjob{\jobname}
+  \edef\testname{\detokenize{#1}}
+  \ifdefstrequal{\testjob}{\testname}{#2}{#3}
+}
