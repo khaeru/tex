@@ -1,0 +1,3 @@
+[submodule "mf/trb"]
+	path = mf/trb
+	url = git@github.com:khaeru/trb-latex.git
