@@ -11,3 +11,6 @@
 [submodule "mf/pgfplots"]
 	path = mf/pgfplots
 	url = git://git.code.sf.net/p/pgfplots/code
+[submodule "mf/jp-report"]
+	path = mf/jp-report
+	url = git@github.com:mit-jp/jp-report-tex.git
