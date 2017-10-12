@@ -1,14 +1,34 @@
 \mode<presentation>
 
+% Beamer internals: https://tex.stackexchange.com/a/50090/94986
+\def\insertpresentationendframe{\inserttotalframenumber}
+\makeatletter
+\g@addto@macro{\appendix}{\immediate\write\@auxout{\string\@writefile{nav}{\noexpand\headcommand{\noexpand\def\noexpand\insertpresentationendframe{\the\c@framenumber}}}}}
+\makeatother
+
 % github.com/matze/mtheme
-\usetheme[
-  block = fill,
-%  numbering = fraction,
+\usetheme{metropolis}
+
+% override \metropolis@enablesectionpage to not apply for \section*
+\makeatletter
+\renewcommand{\metropolis@enablesectionpage}{
+  \AtBeginSection[]{
+    \ifbeamer@inframe
+      \sectionpage
+    \else
+      \frame[plain,c,noframenumbering]{\sectionpage}
+    \fi
+  }
+}
+\makeatother
+
+\metroset{
   progressbar = frametitle,
-  ]{metropolis}
+  sectionpage = progressbar,  % to activate the above
+  block = fill,
+  }
 
-\metroset{titleformat plain = allcaps}
-
+% IDSS colours
 \definecolor{idssblue1}{RGB}{10,83,126}
 \definecolor{idssblue2}{RGB}{31,118,170}
 \definecolor{idssblue3}{RGB}{0,158,222}
@@ -20,15 +40,16 @@
 
 \hypersetup{colorlinks, citecolor = idssgreen, linkcolor = }
 
+% Frame numbering is X / Y, where Y is the last frame *excluding* appendices
 \setbeamertemplate{frame numbering}{
-%  \insertsection\ \insertframenumber/\inserttotalframenumber
-  \insertsectionhead\ {\bfseries \insertframenumber}/\ref{final-page}
+  \insertsectionhead\ {\bfseries \insertframenumber}/\insertpresentationendframe
 }
 
 \setbeamercolor{normal text}{fg=idssgray1,bg=idssgray4}
 
 \setbeamercolor{alerted text}{fg=idssblue3}
 \setbeamercolor{example text}{fg=idssgreen}
+\setbeamerfont{alerted text}{series=\bfseries}
 
 \titlegraphic{\hfill\includegraphics[height=3cm]{idss-0}}
 
