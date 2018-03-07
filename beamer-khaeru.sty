@@ -1,0 +1,27 @@
+% Custom commands for Beamer
+
+% \nomargin: kill margins
+% From https://tex.stackexchange.com/a/143102/94986
+\makeatletter
+% \newlength\beamerleftmargin
+% \setlength\beamerleftmargin{\Gm@lmargin}
+\newcommand{\nomargin}{\hspace*{-\Gm@lmargin}}
+\makeatother
+
+
+% \graphicpages: overlay several pages from a multi-page PDF in sequence
+%
+% Arguments:
+%  - (optional) optional arguments to pass to \includegraphics
+%  - comma-separated sequence of page numbers to show
+%  - filename of multi-page PDF to use
+%
+\newcommand{\graphicpages}[3][height=\textheight]{%
+\nomargin%
+\begin{overlayarea}{\paperwidth}{\textheight}%
+  \centering%
+  \foreach \page [count=\i] in {#2} {%
+    \only<\i>{\includegraphics[#1, page=\page]{#3}}%
+  }
+\end{overlayarea}
+}
