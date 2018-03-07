@@ -1,0 +1,16 @@
+% Custom commands for gitinfo2
+
+\RequirePackage{hyperref}
+\RequirePackage{xstring}
+
+\newcommand\setrepo[1]{
+\def\gitinfo2@khaeru@repo{#1}
+}
+
+
+% \commit command
+\newcommand{\commit}[1]{%
+\noexpandarg%
+\href{https://github.com/\gitinfo2@khaeru@repo/commit/#1}%
+{\ttfamily\bfseries \StrLeft{#1}{7}}%
+}
