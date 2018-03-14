@@ -1,0 +1,60 @@
+% A package to format notes for papers
+%
+% Set the header by giving the package options:
+% - number: eg. 015
+% - title: (optional) short version of title for use in the header; otherwise,
+%   \title{} will be used
+\ProvidesPackage{khaeru-paper-notes}[2018/03/13 Notes!]
+
+\RequirePackage{pgfopts}
+\pgfkeys{
+  /khaerupapernotes/.cd,
+  number/.default = {},
+  number/.store in = \khaeru@papernum,
+  title/.estore in = \khaeru@papertitle,
+  title = {}
+  }
+
+\RequirePackage{enumitem}
+
+\RequirePackage{etoolbox}
+
+\RequirePackage{fancyhdr}
+
+\RequirePackage{gitinfo2-khaeru}
+
+\RequirePackage{geometry}
+\geometry{
+  includehead,
+  headsep = 5mm,
+  margin = 10mm,
+  top = 5mm,
+  }
+
+\PassOptionsToPackage{normalem}{ulem}
+\RequirePackage{ulem}
+
+\RequirePackage{titling}
+
+\ProcessPgfPackageOptions{/khaerupapernotes}\relax
+
+% enumitem
+\setlist[itemize]{label=---, leftmargin=*}
+
+% fancydhr
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+
+\AtBeginDocument{
+  \ifcsempty{khaeru@papertitle}{\let\khaeru@papertitle\thetitle}{}
+  \lhead{\#\khaeru@papernum\ “{\khaeru@papertitle}”—notes}
+}
+
+% gitinfo2
+\newcommand{\gitMarkInTitle}{\gitCommitterIsoDate\ ({\ttfamily \gitBranch\,@\,\gitAbbrevHash})}
+
+% gitinfo2-khaeru
+\setrepo{khaeru/publications}
+
+\endinput
