@@ -14,3 +14,6 @@
 [submodule "mf/jp-report"]
 	path = mf/jp-report
 	url = git@github.com:mit-jp/jp-report-tex.git
+[submodule "mf/mitthesis"]
+	path = mf/mitthesis
+	url = git@github.com:khaeru/mitthesis.git
