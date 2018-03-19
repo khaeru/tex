@@ -5,12 +5,12 @@
   - [`mitthesis` class](https://github.com/khaeru/mitthesis)
   - [`trbunofficial` class](https://github.com/khaeru/trb-latex)
 
-# Packages (`.sty`)
+## Packages (`.sty`)
 
 - `beamerthememitidss.sty`—a Beamer theme with the [MIT IDSS](https://idss.mit.edu) logo and colours.
 - `unicode-extra.sty`—define more Unicode characters for use with `\usepackage[utf8]{inputenc}`. The goal is that most characters produced with compose key sequences on Ubuntu should be valid in LaTeX sources.
 
-# Older things
+## Older things
 
 Browse through older commits to find the following, since deleted:
 
