@@ -16,7 +16,7 @@
     \ifbeamer@inframe
       \sectionpage
     \else
-      \frame[plain,c,noframenumbering]{\sectionpage}
+      \frame<*|handout:0>[plain,c,noframenumbering]{\sectionpage}
     \fi
   }
 }
@@ -38,7 +38,7 @@
 \definecolor{idssgray3}{RGB}{149,149,149}
 \definecolor{idssgray4}{RGB}{235,235,235}
 
-\hypersetup{colorlinks, citecolor = idssgreen, linkcolor = }
+%\hypersetup{colorlinks, citecolor = , linkcolor = }
 
 % Frame numbering is X / Y, where Y is the last frame *excluding* appendices
 \setbeamertemplate{frame numbering}{
@@ -62,5 +62,21 @@
   \vspace*{0.5em}
   }
 }
+
+% Move page number/section title further into the bottom right corner
+% Identical to the metropolis default except sep=1mm
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\textwidth, sep=1mm]{footline}%
+    \usebeamerfont{page number in head/foot}%
+    \usebeamertemplate*{frame footer}
+    \hfill%
+    \usebeamertemplate*{frame numbering}
+  \end{beamercolorbox}%
+}
+
+% \mode
+% <handout>
+%
+% \setbeamercolor{normal text}{fg=idssgray1,bg=white}
 
 \mode<all>

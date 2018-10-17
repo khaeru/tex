@@ -8,6 +8,15 @@
 \newcommand{\nomargin}{\hspace*{-\Gm@lmargin}}
 \makeatother
 
+% \displayimage: full-frame image
+\newcommand{\displayimage}[2][]{
+\begin{frame}<#1>[standout]
+  \begin{tikzpicture}[remember picture, overlay]
+    \node [anchor=center] at (current page.center)
+      {\includegraphics[min size={\paperwidth}{\paperheight}]{#2}};
+  \end{tikzpicture}
+\end{frame}
+}
 
 % \graphicpages: overlay several pages from a multi-page PDF in sequence
 %
