@@ -17,3 +17,6 @@
 [submodule "mf/mitthesis"]
 	path = mf/mitthesis
 	url = git@github.com:khaeru/mitthesis.git
+[submodule "mf/beamer-theme-iiasa"]
+	path = mf/beamer-theme-iiasa
+	url = git@github.com:iiasa/beamer-theme-iiasa.git
