@@ -9,11 +9,20 @@
 \makeatother
 
 % \displayimage: full-frame image
-\newcommand{\displayimage}[2][]{
-\begin{frame}<#1>[standout]
+\newcommand{\displayimage}[2][*]{
+\begin{frame}<#1>[plain]
   \begin{tikzpicture}[remember picture, overlay]
     \node [anchor=center] at (current page.center)
       {\includegraphics[min size={\paperwidth}{\paperheight}]{#2}};
+  \end{tikzpicture}
+\end{frame}
+}
+
+\newcommand{\displayimagefit}[2][*]{
+\begin{frame}<#1>[plain]
+  \begin{tikzpicture}[remember picture, overlay]
+    \node [anchor=center] at (current page.center)
+      {\includegraphics[height=\paperheight, max size={\paperwidth}{\paperheight}]{#2}};
   \end{tikzpicture}
 \end{frame}
 }
@@ -34,3 +43,30 @@
   }
 \end{overlayarea}
 }
+
+% adjustbox:
+% - Load graphicx first and save its original \includegraphics
+\usepackage{graphicx}
+\makeatletter
+\let\orig@includegraphics\includegraphics
+\makeatother
+
+% Using the capitalized 'Export' option replaces \includegraphics with
+% \adjincludegraphics. But this doesn't allow the use of the 'page' argument.
+\newlength{\figmaxwidth}
+\setlength{\figmaxwidth}{\paperwidth}
+\addtolength{\figmaxwidth}{-2mm}
+\newlength{\figmaxheight}
+\setlength{\figmaxheight}{\textheight}
+\addtolength{\figmaxheight}{-3ex}
+\usepackage[Export]{adjustbox}
+% Set all \includegraphics to overlap their left/right margins
+\adjustboxset{
+  max size={\figmaxwidth}{\figmaxheight},
+  }
+% Define a new three-argument command:
+%   \includegraphicspage[adjbox args]{graphicx args}{filename}
+\makeatletter
+\newcommand{\includegraphicspage}[3][]{%
+  \adjustbox{#1}{\orig@includegraphics[#2]{#3}\par}}
+\makeatother
