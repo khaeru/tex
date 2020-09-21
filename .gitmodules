@@ -8,9 +8,6 @@
 [submodule "mf/mtheme"]
 	path = mf/mtheme
 	url = git@github.com:matze/mtheme.git
-[submodule "mf/pgfplots"]
-	path = mf/pgfplots
-	url = git://git.code.sf.net/p/pgfplots/code
 [submodule "mf/jp-report"]
 	path = mf/jp-report
 	url = git@github.com:mit-jp/jp-report-tex.git
@@ -20,3 +17,6 @@
 [submodule "mf/beamer-theme-iiasa"]
 	path = mf/beamer-theme-iiasa
 	url = git@github.com:iiasa/beamer-theme-iiasa.git
+[submodule "mf/pgfplots"]
+	path = mf/pgfplots
+	url = https://github.com/pgf-tikz/pgfplots
