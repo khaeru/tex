@@ -1,22 +1,22 @@
-[submodule "mf/trb"]
-	path = mf/trb
+[submodule "trb"]
+	path = trb
 	url = git@github.com:khaeru/trb-latex.git
-[submodule "mf/gitinfo2"]
-	path = mf/gitinfo2
+[submodule "gitinfo2"]
+	path = gitinfo2
 	url = git@github.com:Hightor/gitinfo2.git
 	branch = CTAN
-[submodule "mf/mtheme"]
-	path = mf/mtheme
+[submodule "mtheme"]
+	path = mtheme
 	url = git@github.com:matze/mtheme.git
-[submodule "mf/jp-report"]
-	path = mf/jp-report
+[submodule "jp-report"]
+	path = jp-report
 	url = git@github.com:mit-jp/jp-report-tex.git
-[submodule "mf/mitthesis"]
-	path = mf/mitthesis
+[submodule "mitthesis"]
+	path = mitthesis
 	url = git@github.com:khaeru/mitthesis.git
 [submodule "beamer-theme-iiasa"]
 	path = beamer-theme-iiasa
 	url = git@github.com:iiasa/beamer-theme-iiasa.git
-[submodule "mf/pgfplots"]
-	path = mf/pgfplots
-	url = https://github.com/pgf-tikz/pgfplots
+[submodule "pgfplots"]
+	path = pgfplots
+	url = git@github.com:pgf-tikz/pgfplots
