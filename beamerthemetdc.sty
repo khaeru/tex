@@ -1,0 +1,15 @@
+% Show the TDC logo
+% TODO Move from the default, bottom-right location to the frame title area
+\pgfdeclareimage[height=8mm]{logo}{tdc}
+\logo{\pgfuseimage{logo}}
+
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{page number in head/foot}[totalframenumber]
+
+% Section page
+\AtBeginSection{
+\frame[plain,c]{\sectionpage}
+}
+
+\usecolortheme{tdc}
+\usefonttheme{tdc}
